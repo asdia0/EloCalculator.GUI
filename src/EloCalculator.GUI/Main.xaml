@@ -7,6 +7,10 @@
         mc:Ignorable="d"
         Title="EloCalculator.GUI" Height="450" Width="800">
     <Grid>
-
+        <Menu IsMainMenu="True" Grid.ColumnSpan="3">
+            <MenuItem Header="Games" Click="Game_OnClick"/>
+            <MenuItem Header="Players" Click="Players_OnClick"/>
+            <MenuItem Header="Tournaments" Click="Tournaments_OnClick"/>
+        </Menu>
     </Grid>
 </Window>
