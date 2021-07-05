@@ -24,5 +24,17 @@
         {
             this.InitializeComponent();
         }
+
+        public void LoadGame_OnClick(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog fileDialog = new();
+            fileDialog.RestoreDirectory = true;
+            fileDialog.Filter = "JSON files (*.json)|*.json";
+
+            if (fileDialog.ShowDialog() == true)
+            {
+                GameDatabase.Load(fileDialog.FileName);
+            }
+        }
     }
 }
