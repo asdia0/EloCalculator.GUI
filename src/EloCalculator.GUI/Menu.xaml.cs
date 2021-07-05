@@ -76,5 +76,12 @@
             Window.GetWindow(this).Close();
             players.Show();
         }
+
+        public void Tournaments_OnClick(object sender, RoutedEventArgs e)
+        {
+            Tournaments tournaments = new();
+            Window.GetWindow(this).Close();
+            tournaments.Show();
+        }
     }
 }
