@@ -21,7 +21,7 @@
     {
         public Games()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
     }
 }
