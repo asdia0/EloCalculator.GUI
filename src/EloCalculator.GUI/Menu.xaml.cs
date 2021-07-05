@@ -22,7 +22,7 @@
     {
         public Menu()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
     }
 }
