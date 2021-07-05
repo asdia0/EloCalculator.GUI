@@ -4,9 +4,52 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EloCalculator.GUI"
+        xmlns:converters="clr-namespace:EloCalculator.GUI"
         mc:Ignorable="d"
         Title="EloCalculator: Games" Height="450" Width="800">
     <Grid>
         <local:Menu/>
+
+        <ListView Name="List" Margin="0,20,0,0" Grid.ColumnSpan="6">
+            <ListView.View>
+                <GridView AllowsColumnReorder="True">
+                    <GridViewColumn
+                        DisplayMemberBinding="{Binding Path=ID}" 
+                        Header="Game ID"
+                        Width="{Binding Path=ActualWidth, ElementName=List, Converter={converters:PercentageConverter}, ConverterParameter='0.164'}"
+                        />
+
+                    <GridViewColumn 
+                        DisplayMemberBinding="{Binding Path=White.ID}"
+                        Header="White ID"
+                        Width="{Binding Path=ActualWidth, ElementName=List, Converter={converters:PercentageConverter}, ConverterParameter='0.164'}"
+                        />
+
+                    <GridViewColumn 
+                        DisplayMemberBinding="{Binding Path=Black.ID}"
+                        Header="Black ID"
+                        Width="{Binding Path=ActualWidth, ElementName=List, Converter={converters:PercentageConverter}, ConverterParameter='0.164'}"
+                        />
+
+                    <GridViewColumn 
+                        DisplayMemberBinding="{Binding Path=Result}"
+                        Header="Result"
+                        Width="{Binding Path=ActualWidth, ElementName=List, Converter={converters:PercentageConverter}, ConverterParameter='0.165'}"
+                        />
+
+                    <GridViewColumn 
+                        DisplayMemberBinding="{Binding Path=DateTime}"
+                        Header="Date and Time"
+                        Width="{Binding Path=ActualWidth, ElementName=List, Converter={converters:PercentageConverter}, ConverterParameter='0.165'}"
+                        />
+
+                    <GridViewColumn 
+                        DisplayMemberBinding="{Binding Path=Rated}"
+                        Header="Is Rated"
+                        Width="{Binding Path=ActualWidth, ElementName=List, Converter={converters:PercentageConverter}, ConverterParameter='0.165'}"
+                        />
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Window>

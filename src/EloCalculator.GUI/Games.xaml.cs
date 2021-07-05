@@ -22,6 +22,7 @@
         public Games()
         {
             this.InitializeComponent();
+            this.List.ItemsSource = GameDatabase.Games;
         }
     }
 }
