@@ -48,5 +48,17 @@
                 PlayerDatabase.Load(fileDialog.FileName);
             }
         }
+
+        public void LoadTournament_OnClick(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog fileDialog = new();
+            fileDialog.RestoreDirectory = true;
+            fileDialog.Filter = "JSON files (*.json)|*.json";
+
+            if (fileDialog.ShowDialog() == true)
+            {
+                TournamentDatabase.Load(fileDialog.FileName);
+            }
+        }
     }
 }
