@@ -21,28 +21,28 @@
                 <DataGridTextColumn
                     Header = "Game ID"
                     Width="1*"
-                    Binding = "{Binding Path=ID}" />
+                    Binding = "{Binding Path=ID, Mode=OneWay}" />
 
                 <DataGridTextColumn
                     Header = "White ID"
                     Width="1*"
-                    Binding = "{Binding Path=White.ID}" />
+                    Binding = "{Binding Path=White.ID, Mode=OneWay}" />
 
 
                 <DataGridTextColumn
                     Header = "Black ID"
                     Width="1*"
-                    Binding = "{Binding Path=Black.ID}" />
+                    Binding = "{Binding Path=Black.ID, Mode=OneWay}" />
 
                 <DataGridTextColumn
                     Header = "Result"
                     Width="1*"
-                    Binding = "{Binding Path=Result}" />
+                    Binding = "{Binding Path=Result, Mode=OneWay}" />
 
                 <DataGridTextColumn
                     Header = "Date and Time"
                     Width="1*"
-                    Binding = "{Binding Path=DateTime}" />
+                    Binding = "{Binding Path=DateTime, Mode=OneWay}" />
                 
                 <DataGridCheckBoxColumn
                     Header = "Rated"
