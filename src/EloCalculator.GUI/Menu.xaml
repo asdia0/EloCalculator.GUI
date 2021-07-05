@@ -7,6 +7,19 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        
+        <Menu IsMainMenu="True">
+            <MenuItem Header="Games" Click="Game_OnClick">
+                <MenuItem Header="Load Game" Click="LoadGame_OnClick"/>
+                <MenuItem Header="Add Game" Click="AddGame_OnClick"/>
+            </MenuItem>
+            <MenuItem Header="Players" Click="Players_OnClick">
+                <MenuItem Header="Load Game" Click="LoadGame_OnClick"/>
+                <MenuItem Header="Add Player" Click="AddPlayer_OnClick"/>
+            </MenuItem>
+            <MenuItem Header="Tournaments" Click="Tournaments_OnClick">
+                <MenuItem Header="Load Tournament" Click="LoadTournament_OnClick"/>
+                <MenuItem Header="Add Tournament" Click="AddTournament_OnClick"/>
+            </MenuItem>
+        </Menu>
     </Grid>
 </UserControl>
