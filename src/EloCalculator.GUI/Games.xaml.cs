@@ -22,7 +22,9 @@
         public Games()
         {
             this.InitializeComponent();
-            this.List.ItemsSource = GameDatabase.Games;
+            this.WindowState = WindowState.Maximized;
+            GameDatabase.Games.Add(new(new("Player 1"), new("Player 2"), Result.White, DateTime.Now, true));
+            this.DataGrid.ItemsSource = GameDatabase.Games;
         }
     }
 }

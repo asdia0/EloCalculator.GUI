@@ -4,52 +4,51 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EloCalculator.GUI"
-        xmlns:converters="clr-namespace:EloCalculator.GUI"
         mc:Ignorable="d"
         Title="EloCalculator: Games" Height="450" Width="800">
+
     <Grid>
         <local:Menu/>
 
-        <ListView Name="List" Margin="0,20,0,0" Grid.ColumnSpan="6">
-            <ListView.View>
-                <GridView AllowsColumnReorder="True">
-                    <GridViewColumn
-                        DisplayMemberBinding="{Binding Path=ID}" 
-                        Header="Game ID"
-                        Width="{Binding Path=ActualWidth, ElementName=List, Converter={converters:PercentageConverter}, ConverterParameter='0.164'}"
-                        />
+        <DataGrid
+            Name = "DataGrid"
+            AlternatingRowBackground = "LightSteelBlue"  
+            AlternationCount = "2"
+            AutoGenerateColumns = "False"
+            Margin="0,20,0,0">
 
-                    <GridViewColumn 
-                        DisplayMemberBinding="{Binding Path=White.ID}"
-                        Header="White ID"
-                        Width="{Binding Path=ActualWidth, ElementName=List, Converter={converters:PercentageConverter}, ConverterParameter='0.164'}"
-                        />
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Header = "Game ID"
+                    Width="1*"
+                    Binding = "{Binding Path=ID}" />
 
-                    <GridViewColumn 
-                        DisplayMemberBinding="{Binding Path=Black.ID}"
-                        Header="Black ID"
-                        Width="{Binding Path=ActualWidth, ElementName=List, Converter={converters:PercentageConverter}, ConverterParameter='0.164'}"
-                        />
+                <DataGridTextColumn
+                    Header = "White ID"
+                    Width="1*"
+                    Binding = "{Binding Path=White.ID}" />
 
-                    <GridViewColumn 
-                        DisplayMemberBinding="{Binding Path=Result}"
-                        Header="Result"
-                        Width="{Binding Path=ActualWidth, ElementName=List, Converter={converters:PercentageConverter}, ConverterParameter='0.165'}"
-                        />
 
-                    <GridViewColumn 
-                        DisplayMemberBinding="{Binding Path=DateTime}"
-                        Header="Date and Time"
-                        Width="{Binding Path=ActualWidth, ElementName=List, Converter={converters:PercentageConverter}, ConverterParameter='0.165'}"
-                        />
+                <DataGridTextColumn
+                    Header = "Black ID"
+                    Width="1*"
+                    Binding = "{Binding Path=Black.ID}" />
 
-                    <GridViewColumn 
-                        DisplayMemberBinding="{Binding Path=Rated}"
-                        Header="Is Rated"
-                        Width="{Binding Path=ActualWidth, ElementName=List, Converter={converters:PercentageConverter}, ConverterParameter='0.165'}"
-                        />
-                </GridView>
-            </ListView.View>
-        </ListView>
+                <DataGridTextColumn
+                    Header = "Result"
+                    Width="1*"
+                    Binding = "{Binding Path=Result}" />
+
+                <DataGridTextColumn
+                    Header = "Date and Time"
+                    Width="1*"
+                    Binding = "{Binding Path=DateTime}" />
+                
+                <DataGridCheckBoxColumn
+                    Header = "Rated"
+                    Width="1*"
+                    Binding = "{Binding Path=Rated, Mode=OneWay}" />
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>
