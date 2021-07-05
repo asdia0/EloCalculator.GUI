@@ -43,11 +43,22 @@
                     Header = "Date and Time"
                     Width="1*"
                     Binding = "{Binding Path=DateTime, Mode=OneWay}" />
-                
+
                 <DataGridCheckBoxColumn
                     Header = "Rated"
                     Width="1*"
                     Binding = "{Binding Path=Rated, Mode=OneWay}" />
+
+                <DataGridTemplateColumn
+                    Header="Delete"
+                    Width="50">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Delete"
+                            Command="Delete"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
