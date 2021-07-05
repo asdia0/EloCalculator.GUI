@@ -62,5 +62,12 @@
                 TournamentDatabase.Load(fileDialog.FileName);
             }
         }
+
+        public void Games_OnClick(object sender, RoutedEventArgs e)
+        {
+            Games games = new();
+            Window.GetWindow(this).Close();
+            games.Show();
+        }
     }
 }
