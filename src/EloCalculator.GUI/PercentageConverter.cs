@@ -17,11 +17,6 @@
             return System.Convert.ToDouble(value) * System.Convert.ToDouble(parameter);
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            throw new NotImplementedException();
-        }
-
         public override object ProvideValue(IServiceProvider serviceProvider)
         {
             return _instance ??= new PercentageConverter();
