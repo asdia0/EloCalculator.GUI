@@ -36,5 +36,17 @@
                 GameDatabase.Load(fileDialog.FileName);
             }
         }
+
+        public void LoadPlayer_OnClick(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog fileDialog = new();
+            fileDialog.RestoreDirectory = true;
+            fileDialog.Filter = "JSON files (*.json)|*.json";
+
+            if (fileDialog.ShowDialog() == true)
+            {
+                PlayerDatabase.Load(fileDialog.FileName);
+            }
+        }
     }
 }
