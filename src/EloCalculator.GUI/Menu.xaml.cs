@@ -66,22 +66,22 @@
         public void ViewGames_OnClick(object sender, RoutedEventArgs e)
         {
             Games games = new();
-            Window.GetWindow(this).Close();
             games.Show();
+            Window.GetWindow(this).Close();
         }
 
         public void ViewPlayers_OnClick(object sender, RoutedEventArgs e)
         {
             Players players = new();
-            Window.GetWindow(this).Close();
             players.Show();
+            Window.GetWindow(this).Close();
         }
 
         public void ViewTournaments_OnClick(object sender, RoutedEventArgs e)
         {
             Tournaments tournaments = new();
-            Window.GetWindow(this).Close();
             tournaments.Show();
+            Window.GetWindow(this).Close();
         }
     }
 }
