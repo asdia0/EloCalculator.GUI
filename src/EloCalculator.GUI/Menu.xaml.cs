@@ -69,5 +69,12 @@
             Window.GetWindow(this).Close();
             games.Show();
         }
+
+        public void Players_OnClick(object sender, RoutedEventArgs e)
+        {
+            Players players = new();
+            Window.GetWindow(this).Close();
+            players.Show();
+        }
     }
 }
