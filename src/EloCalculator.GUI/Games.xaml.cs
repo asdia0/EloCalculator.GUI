@@ -15,7 +15,7 @@
     using System.Windows.Shapes;
 
     /// <summary>
-    /// Interaction logic for Window1.xaml
+    /// Interaction logic for Games.xaml.
     /// </summary>
     public partial class Games : Window
     {
