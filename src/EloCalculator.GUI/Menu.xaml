@@ -8,14 +8,17 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Menu IsMainMenu="True">
-            <MenuItem Header="Games" Click="Games_OnClick">
-                <MenuItem Header="Load Game" Click="LoadGame_OnClick"/>
+            <MenuItem Header="Games">
+                <MenuItem Header="View Games" Click="Games_OnClick"/>
+                <MenuItem Header="Load Games" Click="LoadGame_OnClick"/>
             </MenuItem>
-            <MenuItem Header="Players" Click="Players_OnClick">
-                <MenuItem Header="Load Game" Click="LoadPlayer_OnClick"/>
+            <MenuItem Header="Players">
+                <MenuItem Header="View Players" Click="Players_OnClick"/>
+                <MenuItem Header="Load Players" Click="LoadPlayer_OnClick"/>
             </MenuItem>
-            <MenuItem Header="Tournaments" Click="Tournaments_OnClick">
-                <MenuItem Header="Load Tournament" Click="LoadTournament_OnClick"/>
+            <MenuItem Header="Tournaments">
+                <MenuItem Header="View Tournaments" Click="Tournaments_OnClick"/>
+                <MenuItem Header="Load Tournaments" Click="LoadTournament_OnClick"/>
             </MenuItem>
         </Menu>
     </Grid>
