@@ -9,8 +9,6 @@
     {
         private static PercentageConverter _instance;
 
-        #region IValueConverter Members
-
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             return System.Convert.ToDouble(value) * System.Convert.ToDouble(parameter);
@@ -21,11 +19,9 @@
             throw new NotImplementedException();
         }
 
-        #endregion
-
         public override object ProvideValue(IServiceProvider serviceProvider)
         {
-            return _instance ?? (_instance = new PercentageConverter());
+            return _instance ??= new PercentageConverter();
         }
     }
 }
