@@ -16,7 +16,7 @@
     using System.Windows.Shapes;
 
     /// <summary>
-    /// Interaction logic for UserControl1.xaml
+    /// Interaction logic for Menu.xaml.
     /// </summary>
     public partial class Menu : UserControl
     {
