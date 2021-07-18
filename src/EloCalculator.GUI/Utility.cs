@@ -7,12 +7,34 @@
     {
         public static ObservableCollection<Game> Games = new();
 
+        public static ObservableCollection<Player> Players = new();
+
+        public static ObservableCollection<Tournament> Tournaments = new();
+
         public static void UpdateGames()
         {
             Games.Clear();
             foreach (Game g in GameDatabase.Games)
             {
                 Games.Add(g);
+            }
+        }
+
+        public static void UpdatePlayers()
+        {
+            Players.Clear();
+            foreach (Player g in PlayerDatabase.Players)
+            {
+                Players.Add(g);
+            }
+        }
+
+        public static void UpdateTournaments()
+        {
+            Tournaments.Clear();
+            foreach (Tournament g in TournamentDatabase.Tournaments)
+            {
+                Tournaments.Add(g);
             }
         }
     }
