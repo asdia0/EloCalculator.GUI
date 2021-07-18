@@ -34,5 +34,10 @@
             this.DataGrid.ItemsSource = Utility.Games;
             this.DataGrid.IsSynchronizedWithCurrentItem = true;
         }
+
+        public void Delete_OnClick(object sender, RoutedEventArgs e)
+        {
+            // TODO: Update games in database
+        }
     }
 }
