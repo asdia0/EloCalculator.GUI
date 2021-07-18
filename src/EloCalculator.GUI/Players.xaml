@@ -6,7 +6,60 @@
         xmlns:local="clr-namespace:EloCalculator.GUI"
         mc:Ignorable="d"
         Title="EloCalculator: Players" Height="450" Width="800">
+    
     <Grid>
         <local:Menu/>
+
+        <DataGrid
+            Name = "DataGrid"
+            AlternatingRowBackground = "LightSteelBlue"  
+            AlternationCount = "2"
+            AutoGenerateColumns = "False"
+            Margin="0,20,0,0">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Header = "Player ID"
+                    Width="1*"
+                    Binding = "{Binding Path=ID, Mode=OneWay}" />
+
+                <DataGridTextColumn
+                    Header = "Name"
+                    Width="1*"
+                    Binding = "{Binding Path=Name, Mode=OneWay}" />
+
+
+                <DataGridTextColumn
+                    Header = "Rating"
+                    Width="1*"
+                    Binding = "{Binding Path=Rating, Mode=OneWay}" />
+
+                <DataGridTemplateColumn Header="Games" Width="1*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ListBox ItemsSource="{Binding Path=GamesID}">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" />
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn
+                    Header="Delete"
+                    Width="50">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Delete"
+                            Command="Delete"
+                            Click="Delete_OnClick"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>

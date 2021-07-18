@@ -22,6 +22,15 @@
         public Players()
         {
             this.InitializeComponent();
+            this.WindowState = WindowState.Maximized;
+            Utility.UpdatePlayers();
+            this.DataGrid.ItemsSource = Utility.Players;
+            this.DataGrid.IsSynchronizedWithCurrentItem = true;
+        }
+
+        public void Delete_OnClick(object sender, RoutedEventArgs e)
+        {
+            // TODO: Update games in database
         }
     }
 }
