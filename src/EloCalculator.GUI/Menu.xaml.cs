@@ -35,7 +35,10 @@
 
             if (fileDialog.ShowDialog() == true)
             {
+                GameDatabase.Games.Clear();
                 GameDatabase.Load(fileDialog.FileName);
+
+                Utility.UpdateGames();
             }
         }
 

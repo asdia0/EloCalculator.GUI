@@ -26,11 +26,7 @@
             this.WindowState = WindowState.Maximized;
             Game add = new(new("Player 1"), new("Player 2"), Result.White, DateTime.Now, true);
 
-            Utility.Games.Clear();
-            foreach (Game g in GameDatabase.Games)
-            {
-                Utility.Games.Add(g);
-            }
+            Utility.UpdateGames();
             this.DataGrid.ItemsSource = Utility.Games;
             this.DataGrid.IsSynchronizedWithCurrentItem = true;
         }
