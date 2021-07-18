@@ -9,8 +9,8 @@
     <Grid>
         <Menu IsMainMenu="True">
             <MenuItem Header="Games">
-                <MenuItem Header="Add Game" Click="AddGame_OnClick"/>
                 <MenuItem Header="View Games" Click="ViewGames_OnClick"/>
+                <MenuItem Header="Add Game" Click="AddGame_OnClick"/>
                 <MenuItem Header="Load Games" Click="LoadGame_OnClick"/>
             </MenuItem>
             <MenuItem Header="Players">
