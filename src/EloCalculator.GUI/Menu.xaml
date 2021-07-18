@@ -15,6 +15,7 @@
             </MenuItem>
             <MenuItem Header="Players">
                 <MenuItem Header="View Players" Click="ViewPlayers_OnClick"/>
+                <MenuItem Header="Add Player" Click="AddPlayer_OnClick"/>
                 <MenuItem Header="Load Players" Click="LoadPlayer_OnClick"/>
             </MenuItem>
             <MenuItem Header="Tournaments">

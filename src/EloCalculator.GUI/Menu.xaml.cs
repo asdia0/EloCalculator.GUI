@@ -92,5 +92,12 @@
             NewGame newGame = new();
             newGame.Show();
         }
+
+        public void AddPlayer_OnClick(object sender, RoutedEventArgs e)
+        {
+            NewPlayer newPlayer = new();
+            newPlayer.Show();
+        }
+
     }
 }
