@@ -33,7 +33,8 @@
             else
             {
                 Game g = new Game(PlayerDatabase.Players[this.WhiteID.SelectedIndex], PlayerDatabase.Players[this.BlackID.SelectedIndex], (Result)int.Parse(this.Result.SelectedIndex.ToString()), DateTime.Now, (bool)this.Rated.IsChecked);
-                Utility.Games.Add(g);
+                Utility.UpdateGames();
+                Utility.UpdatePlayers();
             }
             this.Close();
         }
