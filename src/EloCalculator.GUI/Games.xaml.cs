@@ -24,7 +24,7 @@
         {
             this.InitializeComponent();
             this.WindowState = WindowState.Maximized;
-            GameDatabase.Games.Add(new(new("Player 1"), new("Player 2"), Result.White, DateTime.Now, true));
+            Game add = new(new("Player 1"), new("Player 2"), Result.White, DateTime.Now, true);
 
             Utility.Games.Clear();
             foreach (Game g in GameDatabase.Games)

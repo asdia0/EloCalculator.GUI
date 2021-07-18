@@ -26,13 +26,13 @@
                 <DataGridTextColumn
                     Header = "White ID"
                     Width="1*"
-                    Binding = "{Binding Path=White.ID, Mode=OneWay}" />
+                    Binding = "{Binding Path=WhitePlayer.ID, Mode=OneWay}" />
 
 
                 <DataGridTextColumn
                     Header = "Black ID"
                     Width="1*"
-                    Binding = "{Binding Path=Black.ID, Mode=OneWay}" />
+                    Binding = "{Binding Path=BlackPlayer.ID, Mode=OneWay}" />
 
                 <DataGridTextColumn
                     Header = "Result"
