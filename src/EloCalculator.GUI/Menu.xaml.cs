@@ -83,5 +83,11 @@
             tournaments.Show();
             Window.GetWindow(this).Close();
         }
+
+        public void AddGame_OnClick(object sender, RoutedEventArgs e)
+        {
+            NewGame newGame = new();
+            newGame.Show();
+        }
     }
 }
