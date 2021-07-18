@@ -15,6 +15,7 @@
             AlternatingRowBackground = "LightSteelBlue"  
             AlternationCount = "2"
             AutoGenerateColumns = "False"
+            PreviewKeyDown="PreviewKeyDownHandler"
             Margin="0,20,0,0">
 
             <DataGrid.Columns>
@@ -44,18 +45,6 @@
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>
                             </ListBox>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-
-                <DataGridTemplateColumn
-                    Header="Delete"
-                    Width="50">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button Content="Delete"
-                            Command="Delete"
-                            Click="Delete_OnClick"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

@@ -1,6 +1,7 @@
 ﻿namespace EloCalculator.GUI
 {
     using System;
+    using System.Data;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
@@ -31,9 +32,16 @@
             this.DataGrid.IsSynchronizedWithCurrentItem = true;
         }
 
-        public void Delete_OnClick(object sender, RoutedEventArgs e)
+        public void PreviewKeyDownHandler(object sender, KeyEventArgs e)
         {
-            // Delete game
+            DataGrid grid = (DataGrid)sender;
+            if (e.Key == Key.Delete)
+            {
+                foreach (Game game in grid.SelectedItems)
+                {
+                    GameDatabase.Games.Remove(game);
+                }
+            }
 
             // Update player stats
 

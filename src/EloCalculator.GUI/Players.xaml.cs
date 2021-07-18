@@ -28,11 +28,18 @@
             this.DataGrid.IsSynchronizedWithCurrentItem = true;
         }
 
-        public void Delete_OnClick(object sender, RoutedEventArgs e)
+        public void PreviewKeyDownHandler(object sender, KeyEventArgs e)
         {
-            // Delete player
+            DataGrid grid = (DataGrid)sender;
+            if (e.Key == Key.Delete)
+            {
+                foreach (Game game in grid.SelectedItems)
+                {
+                    GameDatabase.Games.Remove(game);
+                }
+            }
 
-            // Update game stats
+            // Update player stats
 
             // Update tournament stats
 

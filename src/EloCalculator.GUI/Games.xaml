@@ -15,6 +15,7 @@
             AlternatingRowBackground = "LightSteelBlue"  
             AlternationCount = "2"
             AutoGenerateColumns = "False"
+            PreviewKeyDown="PreviewKeyDownHandler"
             Margin="0,20,0,0">
 
             <DataGrid.Columns>
@@ -48,18 +49,6 @@
                     Header = "Rated"
                     Width="1*"
                     Binding = "{Binding Path=Rated, Mode=OneWay}" />
-
-                <DataGridTemplateColumn
-                    Header="Delete"
-                    Width="50">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button Content="Delete"
-                            Command="Delete"
-                            Click="Delete_OnClick"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
