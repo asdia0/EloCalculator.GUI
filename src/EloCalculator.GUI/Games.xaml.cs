@@ -13,6 +13,7 @@
     using System.Windows.Media;
     using System.Windows.Media.Imaging;
     using System.Windows.Shapes;
+    using System.Collections.ObjectModel;
 
     /// <summary>
     /// Interaction logic for Games.xaml.
@@ -24,7 +25,14 @@
             this.InitializeComponent();
             this.WindowState = WindowState.Maximized;
             GameDatabase.Games.Add(new(new("Player 1"), new("Player 2"), Result.White, DateTime.Now, true));
-            this.DataGrid.ItemsSource = GameDatabase.Games;
+
+            Utility.Games.Clear();
+            foreach (Game g in GameDatabase.Games)
+            {
+                Utility.Games.Add(g);
+            }
+            this.DataGrid.ItemsSource = Utility.Games;
+            this.DataGrid.IsSynchronizedWithCurrentItem = true;
         }
     }
 }
