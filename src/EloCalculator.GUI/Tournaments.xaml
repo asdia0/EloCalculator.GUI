@@ -6,7 +6,54 @@
         xmlns:local="clr-namespace:EloCalculator.GUI"
         mc:Ignorable="d"
         Title="EloCalculator: Tournaments" Height="450" Width="800">
+
     <Grid>
         <local:Menu/>
+
+        <DataGrid
+            Name = "DataGrid"
+            AlternatingRowBackground = "LightSteelBlue"  
+            AlternationCount = "2"
+            AutoGenerateColumns = "False"
+            PreviewKeyDown="PreviewKeyDownHandler"
+            Margin="0,20,0,0">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Header = "Tournament ID"
+                    Width="1*"
+                    Binding = "{Binding Path=ID, Mode=OneWay}" />
+
+                <DataGridTextColumn
+                    Header = "Name"
+                    Width="1*"
+                    Binding = "{Binding Path=WhitePlayer.ID, Mode=OneWay}" />
+
+                <DataGridTextColumn
+                    Header = "Type"
+                    Width="1*"
+                    Binding = "{Binding Path=BlackPlayer.ID, Mode=OneWay}" />
+
+                <DataGridTemplateColumn
+                    Header="Players"
+                    Width="1*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="View Players" Click="ViewPlayers_OnClick"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn
+                    Header="Rounds"
+                    Width="1*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="View Rounds" Click="ViewRounds_OnClick"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>
