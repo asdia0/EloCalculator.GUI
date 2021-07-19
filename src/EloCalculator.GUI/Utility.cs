@@ -11,6 +11,8 @@
 
         public static ObservableCollection<Tournament> Tournaments = new();
 
+        public static ObservableCollection<TournamentPlayer> TournamentPlayers = new();
+
         public static void UpdateGames()
         {
             Games.Clear();
@@ -35,6 +37,14 @@
             foreach (Tournament g in TournamentDatabase.Tournaments)
             {
                 Tournaments.Add(g);
+            }
+        }
+
+        public static void UpdateTournamentPlayers(Tournament tournament)
+        {
+            foreach (TournamentPlayer player in tournament.Players)
+            {
+                TournamentPlayers.Add(player);
             }
         }
     }

@@ -24,6 +24,7 @@
         {
             TournamentPlayer tp = new(Utility.Tournaments[this.Tournament.SelectedIndex], Utility.Players[this.Player.SelectedIndex]);
             Utility.UpdateTournaments();
+            Utility.UpdateTournamentPlayers(Utility.Tournaments[this.Tournament.SelectedIndex]);
             this.Close();
         }
 

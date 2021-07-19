@@ -7,6 +7,7 @@
     using System.Threading.Tasks;
     using System.Windows;
     using System.Windows.Controls;
+    using System.Collections.ObjectModel;
     using System.Windows.Data;
     using System.Windows.Documents;
     using System.Windows.Input;
@@ -21,13 +22,17 @@
     {
         private Tournament Tournament;
 
+        private ObservableCollection<TournamentPlayer> Players { get; set; }
+
         public TournamentPlayers(Tournament tournament)
         {
             this.InitializeComponent();
             this.WindowState = WindowState.Maximized;
             this.Tournament = tournament;
             Utility.UpdateTournaments();
-            this.DataGrid.ItemsSource = this.Tournament.Players;
+            Utility.UpdateTournamentPlayers(this.Tournament);
+            this.Players = Utility.TournamentPlayers;
+            this.DataGrid.ItemsSource = this.Players;
             this.DataGrid.IsSynchronizedWithCurrentItem = true;
         }
 
@@ -49,6 +54,7 @@
             Utility.UpdateGames();
             Utility.UpdatePlayers();
             Utility.UpdateTournaments();
+            Utility.UpdateTournamentPlayers(this.Tournament);
         }
 
         public void ViewGames_OnClick(object sender, RoutedEventArgs e)
