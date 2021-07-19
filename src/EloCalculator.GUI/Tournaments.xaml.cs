@@ -28,7 +28,7 @@
             Game add = new(new("Player 1"), new("Player 2"), Result.White, DateTime.Now, true);
 
             Utility.UpdateGames();
-            this.DataGrid.ItemsSource = Utility.Games;
+            this.DataGrid.ItemsSource = Utility.Tournaments;
             this.DataGrid.IsSynchronizedWithCurrentItem = true;
         }
 
@@ -46,13 +46,13 @@
 
         public void ViewPlayers_OnClick(object sender, RoutedEventArgs e)
         {
-            TournamentPlayers tp = new(((Button)sender).DataContext as TournamentPlayer);
+            TournamentPlayers tp = new(((Button)sender).DataContext as Tournament);
             tp.Show();
         }
 
         public void ViewRounds_OnClick(object sender, RoutedEventArgs e)
         {
-            TournamentRounds tp = new(((Button)sender).DataContext as TournamentRound);
+            TournamentRounds tp = new(((Button)sender).DataContext as Tournament);
             tp.Show();
         }
     }
