@@ -35,16 +35,12 @@
                     Width="1*"
                     Binding = "{Binding Path=Rating, Mode=OneWay}" />
 
-                <DataGridTemplateColumn Header="Games" Width="1*">
+                <DataGridTemplateColumn
+                    Header="Games"
+                    Width="1*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <ListBox ItemsSource="{Binding Path=GamesID}">
-                                <ListBox.ItemTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding}" />
-                                    </DataTemplate>
-                                </ListBox.ItemTemplate>
-                            </ListBox>
+                            <Button Content="View Games" Click="ViewGames_OnClick"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
