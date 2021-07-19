@@ -27,12 +27,12 @@
                 <DataGridTextColumn
                     Header = "Name"
                     Width="1*"
-                    Binding = "{Binding Path=WhitePlayer.ID, Mode=OneWay}" />
+                    Binding = "{Binding Path=Name, Mode=OneWay}" />
 
                 <DataGridTextColumn
                     Header = "Type"
                     Width="1*"
-                    Binding = "{Binding Path=BlackPlayer.ID, Mode=OneWay}" />
+                    Binding = "{Binding Path=Type, Mode=OneWay}" />
 
                 <DataGridTemplateColumn
                     Header="Players"
