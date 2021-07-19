@@ -46,12 +46,14 @@
 
         public void ViewPlayers_OnClick(object sender, RoutedEventArgs e)
         {
-
+            TournamentPlayers tp = new(((Button)sender).DataContext as TournamentPlayer);
+            tp.Show();
         }
 
         public void ViewRounds_OnClick(object sender, RoutedEventArgs e)
         {
-
+            TournamentRounds tp = new(((Button)sender).DataContext as TournamentRound);
+            tp.Show();
         }
     }
 }
