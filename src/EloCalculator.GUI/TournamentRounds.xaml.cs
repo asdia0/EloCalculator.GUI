@@ -55,12 +55,14 @@
 
         public void ViewGames_OnClick(object sender, RoutedEventArgs e)
         {
-
+            TournamentRoundGames trg = new(((Button)sender).DataContext as TournamentRound);
+            trg.Show();
         }
 
         public void ViewReqByes_OnClick(object sender, RoutedEventArgs e)
         {
-
+            RequestedByes rb = new(((Button)sender).DataContext as TournamentRound);
+            rb.Show();
         }
     }
 }
