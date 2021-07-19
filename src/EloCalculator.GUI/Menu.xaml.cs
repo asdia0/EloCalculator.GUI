@@ -99,5 +99,22 @@
             newPlayer.Show();
         }
 
+        public void AddTournament_OnClick(object sender, RoutedEventArgs e)
+        {
+            NewTournament newTournament = new();
+            newTournament.Show();
+        }
+
+        public void AddTournamentPlayer_OnClick(object sender, RoutedEventArgs e)
+        {
+            NewTournamentPlayer newTournamentPlayer = new();
+            newTournamentPlayer.Show();
+        }
+
+        public void AddTournamentRound_OnClick(object sender, RoutedEventArgs e)
+        {
+            NewTournamentRound newTournamentRound = new();
+            newTournamentRound.Show();
+        }
     }
 }

@@ -10,17 +10,20 @@
         <Menu IsMainMenu="True">
             <MenuItem Header="Games">
                 <MenuItem Header="View Games" Click="ViewGames_OnClick"/>
-                <MenuItem Header="Add Game" Click="AddGame_OnClick"/>
                 <MenuItem Header="Load Games" Click="LoadGame_OnClick"/>
+                <MenuItem Header="Add Game" Click="AddGame_OnClick"/>
             </MenuItem>
             <MenuItem Header="Players">
                 <MenuItem Header="View Players" Click="ViewPlayers_OnClick"/>
-                <MenuItem Header="Add Player" Click="AddPlayer_OnClick"/>
                 <MenuItem Header="Load Players" Click="LoadPlayer_OnClick"/>
+                <MenuItem Header="Add Player" Click="AddPlayer_OnClick"/>
             </MenuItem>
             <MenuItem Header="Tournaments">
                 <MenuItem Header="View Tournaments" Click="ViewTournaments_OnClick"/>
                 <MenuItem Header="Load Tournaments" Click="LoadTournament_OnClick"/>
+                <MenuItem Header="Add Tournament" Click="AddTournament_OnClick"/>
+                <MenuItem Header="Add Tournament Player" Click="AddTournamentPlayer_OnClick"/>
+                <MenuItem Header="Add Tournament Round" Click="AddTournamentRound_OnClick"/>
             </MenuItem>
         </Menu>
     </Grid>
