@@ -48,12 +48,14 @@
         {
             TournamentPlayers tp = new(((Button)sender).DataContext as Tournament);
             tp.Show();
+            Window.GetWindow(this).Close();
         }
 
         public void ViewRounds_OnClick(object sender, RoutedEventArgs e)
         {
             TournamentRounds tp = new(((Button)sender).DataContext as Tournament);
             tp.Show();
+            Window.GetWindow(this).Close();
         }
     }
 }

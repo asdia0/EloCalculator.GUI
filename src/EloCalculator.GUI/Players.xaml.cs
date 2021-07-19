@@ -52,6 +52,7 @@
         {
             PlayerGames pg = new(((Button)sender).DataContext as Player);
             pg.Show();
+            Window.GetWindow(this).Close();
         }
     }
 }

@@ -57,12 +57,14 @@
         {
             TournamentRoundGames trg = new(((Button)sender).DataContext as TournamentRound);
             trg.Show();
+            Window.GetWindow(this).Close();
         }
 
         public void ViewReqByes_OnClick(object sender, RoutedEventArgs e)
         {
             RequestedByes rb = new(this.Tournament, ((Button)sender).DataContext as TournamentRound);
             rb.Show();
+            Window.GetWindow(this).Close();
         }
     }
 }

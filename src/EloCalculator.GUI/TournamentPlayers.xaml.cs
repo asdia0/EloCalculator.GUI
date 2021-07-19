@@ -61,6 +61,7 @@
         {
             TournamentPlayerGames tpg = new(this.Tournament, ((Button)sender).DataContext as TournamentPlayer);
             tpg.Show();
+            Window.GetWindow(this).Close();
         }
     }
 }
