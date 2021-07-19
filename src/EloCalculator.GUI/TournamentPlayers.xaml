@@ -27,7 +27,7 @@
                 <DataGridCheckBoxColumn
                     Header = "Active"
                     Width="Auto"
-                    Binding = "{Binding Path=Rated, Mode=OneWay}"/>
+                    Binding = "{Binding Path=Active, Mode=TwoWay}"/>
 
 
                 <DataGridTextColumn
@@ -79,7 +79,7 @@
                 <DataGridTextColumn
                     Header = "Culmulative"
                     Width="2*"
-                    Binding = "{Binding Path=Culmuulative, Mode=OneWay}"/>
+                    Binding = "{Binding Path=Culmulative, Mode=OneWay}"/>
 
                 <DataGridTextColumn
                     Header = "Baumbach"
