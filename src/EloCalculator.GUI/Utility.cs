@@ -14,6 +14,8 @@
         public static ObservableCollection<TournamentPlayer> TournamentPlayers = new();
 
         public static ObservableCollection<TournamentRound> TournamentRounds = new();
+        
+        public static ObservableCollection<Game> TournamentRoundGames = new();
 
         public static void UpdateGames()
         {
@@ -57,6 +59,15 @@
             foreach (TournamentRound round in tournament.Rounds)
             {
                 TournamentRounds.Add(round);
+            }
+        }
+
+        public static void UpdateTournamentRoundGames(TournamentRound round)
+        {
+            TournamentRoundGames.Clear();
+            foreach (Game game in round.Games)
+            {
+                TournamentRoundGames.Add(game);
             }
         }
     }

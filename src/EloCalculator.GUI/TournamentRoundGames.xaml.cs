@@ -24,16 +24,13 @@
     {
         public TournamentRound TournamentRound { get; set; }
 
-        public ObservableCollection<Game> Games { get; set; }
-
         public TournamentRoundGames(TournamentRound round)
         {
             this.InitializeComponent();
             this.WindowState = WindowState.Maximized;
             this.TournamentRound = round;
-            this.Games = new();
-            this.UpdateGames();
-            this.DataGrid.ItemsSource = this.Games;
+            Utility.UpdateTournamentRoundGames(this.TournamentRound);
+            this.DataGrid.ItemsSource = Utility.TournamentRoundGames;
             this.DataGrid.IsSynchronizedWithCurrentItem = true;
         }
 
@@ -55,15 +52,6 @@
             Utility.UpdateGames();
             Utility.UpdatePlayers();
             Utility.UpdateTournaments();
-        }
-
-        public void UpdateGames()
-        {
-            this.Games.Clear();
-            foreach (Game game in this.TournamentRound.Games)
-            {
-                this.Games.Add(game);
-            }
         }
     }
 }

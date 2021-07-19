@@ -116,5 +116,11 @@
             NewTournamentRound newTournamentRound = new();
             newTournamentRound.Show();
         }
+
+        public void AddTournamentGames_OnClick(object sender, RoutedEventArgs e)
+        {
+            NewTournamentGame newTournamentGames = new();
+            newTournamentGames.Show();
+        }
     }
 }
