@@ -44,6 +44,7 @@
 
         public static void UpdateTournamentPlayers(Tournament tournament)
         {
+            TournamentPlayers.Clear();
             foreach (TournamentPlayer player in tournament.Players)
             {
                 TournamentPlayers.Add(player);
@@ -52,6 +53,7 @@
 
         public static void UpdateTournamentRounds(Tournament tournament)
         {
+            TournamentRounds.Clear();
             foreach (TournamentRound round in tournament.Rounds)
             {
                 TournamentRounds.Add(round);
