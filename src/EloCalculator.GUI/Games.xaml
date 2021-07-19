@@ -25,14 +25,26 @@
                     Binding = "{Binding Path=ID, Mode=OneWay}" />
 
                 <DataGridTextColumn
-                    Header = "White ID"
-                    Width="1*"
-                    Binding = "{Binding Path=WhitePlayer.ID, Mode=OneWay}" />
+                    Header = "White"
+                    Width="1*">
+                    <DataGridTextColumn.Binding>
+                        <MultiBinding StringFormat="{}{0} ({1})">
+                            <Binding Path="WhitePlayer.ID" Mode="OneWay"/>
+                            <Binding Path="WhitePlayer.Name" Mode="OneWay" />
+                        </MultiBinding>
+                    </DataGridTextColumn.Binding>
+                </DataGridTextColumn>
 
                 <DataGridTextColumn
-                    Header = "Black ID"
-                    Width="1*"
-                    Binding = "{Binding Path=BlackPlayer.ID, Mode=OneWay}" />
+                    Header = "Black"
+                    Width="1*">
+                    <DataGridTextColumn.Binding>
+                        <MultiBinding StringFormat="{}{0} ({1})">
+                            <Binding Path="BlackPlayer.ID" Mode="OneWay"/>
+                            <Binding Path="BlackPlayer.Name" Mode="OneWay" />
+                        </MultiBinding>
+                    </DataGridTextColumn.Binding>
+                </DataGridTextColumn>
 
                 <DataGridTextColumn
                     Header = "Result"
