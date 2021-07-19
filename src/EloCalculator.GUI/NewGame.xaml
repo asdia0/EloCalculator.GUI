@@ -23,11 +23,21 @@
         <Label Grid.Row="1">
             White ID:
         </Label>
-        <ComboBox Grid.Column="1" Grid.Row="1" Margin="0,0,0,10" Height="30" Name="WhiteID"/>
+        <ComboBox Grid.Column="1" Grid.Row="1" Margin="0,0,0,10" Height="30" Name="WhiteID">
+            <MultiBinding StringFormat="{}{0} ({1})">
+                <Binding Path="WhitePlayer.ID" Mode="OneWay"/>
+                <Binding Path="WhitePlayer.Name" Mode="OneWay" />
+            </MultiBinding>
+        </ComboBox>
         <Label Grid.Row="2">
             Black ID:
         </Label>
-        <ComboBox Grid.Column="1" Grid.Row="2" Margin="0,0,0,10" Height="30" Name="BlackID"/>
+        <ComboBox Grid.Column="1" Grid.Row="1" Margin="0,0,0,10" Height="30" Name="BlackID">
+            <MultiBinding StringFormat="{}{0} ({1})">
+                <Binding Path="BlackPlayer.ID" Mode="OneWay"/>
+                <Binding Path="BlackPlayer.Name" Mode="OneWay" />
+            </MultiBinding>
+        </ComboBox>        
         <Label Grid.Row="3">
             Result:
         </Label>
