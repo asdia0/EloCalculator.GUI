@@ -21,18 +21,18 @@
             <DataGrid.Columns>
                 <DataGridTextColumn
                     Header = "Tournament Player ID"
-                    Width="1*"
+                    Width="Auto"
                     Binding = "{Binding Path=ID, Mode=OneWay}" />
 
                 <DataGridCheckBoxColumn
                     Header = "Active"
-                    Width="1*"
+                    Width="Auto"
                     Binding = "{Binding Path=Rated, Mode=OneWay}"/>
 
 
                 <DataGridTextColumn
                     Header = "Player"
-                    Width="1*">
+                    Width="Auto">
                     <DataGridTextColumn.Binding>
                         <MultiBinding StringFormat="{}{0} ({1})">
                             <Binding Path="Player.ID" Mode="OneWay"/>
@@ -43,7 +43,7 @@
 
                 <DataGridTemplateColumn
                     Header="Games"
-                    Width="1*">
+                    Width="Auto">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Button Content="View Games" Click="ViewGames_OnClick"/>
@@ -57,13 +57,13 @@
                     Binding = "{Binding Path=Score, Mode=OneWay}"/>
 
                 <DataGridTextColumn
-                    Header = "Performance Rating"
+                    Header = "Performance"
                     Width="1*"
                     Binding = "{Binding Path=PerformanceRating, Mode=OneWay}"/>
 
                 <DataGridTextColumn
                     Header = "Sonneborn-Berger"
-                    Width="1*"
+                    Width="2*"
                     Binding = "{Binding Path=SonnebornBerger, Mode=OneWay}"/>
 
                 <DataGridTextColumn
@@ -73,17 +73,17 @@
 
                 <DataGridTextColumn
                     Header = "Median Buchholz"
-                    Width="1*"
+                    Width="2*"
                     Binding = "{Binding Path=MedianBuchholz, Mode=OneWay}"/>
 
                 <DataGridTextColumn
                     Header = "Culmulative"
-                    Width="1*"
+                    Width="2*"
                     Binding = "{Binding Path=Culmuulative, Mode=OneWay}"/>
 
                 <DataGridTextColumn
                     Header = "Baumbach"
-                    Width="1*"
+                    Width="2*"
                     Binding = "{Binding Path=Baumbach, Mode=OneWay}"/>
 
             </DataGrid.Columns>
