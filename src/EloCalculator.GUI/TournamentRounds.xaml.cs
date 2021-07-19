@@ -29,7 +29,8 @@
             this.InitializeComponent();
             this.WindowState = WindowState.Maximized;
             this.Tournament = tournament;
-            this.DataGrid.ItemsSource = this.Tournament.Rounds;
+            Utility.UpdateTournamentRounds(this.Tournament);
+            this.DataGrid.ItemsSource = Utility.TournamentRounds;
             this.DataGrid.IsSynchronizedWithCurrentItem = true;
         }
 

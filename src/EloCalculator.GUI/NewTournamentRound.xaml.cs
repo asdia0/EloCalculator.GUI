@@ -23,6 +23,7 @@
         {
             TournamentRound r = new(Utility.Tournaments[this.Tournament.SelectedIndex]);
             Utility.UpdateTournaments();
+            Utility.UpdateTournamentRounds(Utility.Tournaments[this.Tournament.SelectedIndex]);
             this.Close();
         }
 
