@@ -1,0 +1,62 @@
+﻿<Window x:Class="EloCalculator.GUI.TournamentRounds"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EloCalculator.GUI"
+        mc:Ignorable="d"
+        Title="EloCalculator: Tournament Rounds" Height="450" Width="800">
+    
+    <Grid>
+        <local:Menu/>
+
+        <DataGrid
+            Name = "DataGrid"
+            AlternatingRowBackground = "LightSteelBlue"  
+            AlternationCount = "2"
+            AutoGenerateColumns = "False"
+            PreviewKeyDown="PreviewKeyDownHandler"
+            Margin="0,20,0,0">
+
+            <DataGrid.Columns>
+
+                <DataGridTextColumn
+                    Header = "Round ID"
+                    Width="1*"
+                    Binding = "{Binding Path=ID, Mode=OneWay}"/>
+
+                <DataGridTemplateColumn
+                    Header="Games"
+                    Width="1*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="View Games" Click="ViewGames_OnClick"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTextColumn
+                    Header = "Black"
+                    Width="1*">
+                    <DataGridTextColumn.Binding>
+                        <MultiBinding StringFormat="{}{0} ({1})">
+                            <Binding Path="PairingBye.ID" Mode="OneWay"/>
+                            <Binding Path="PairingBye.Name" Mode="OneWay" />
+                        </MultiBinding>
+                    </DataGridTextColumn.Binding>
+                </DataGridTextColumn>
+
+                <DataGridTemplateColumn
+                    Header="Games"
+                    Width="1*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="View Requested Byes" Click="ViewReqByes_OnClick"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
