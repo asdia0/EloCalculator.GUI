@@ -47,5 +47,11 @@
             Utility.UpdatePlayers();
             Utility.UpdateTournaments();
         }
+
+        public void ViewGames_OnClick(object sender, RoutedEventArgs e)
+        {
+            PlayerGames pg = new(((Button)sender).DataContext as Player);
+            pg.Show();
+        }
     }
 }
