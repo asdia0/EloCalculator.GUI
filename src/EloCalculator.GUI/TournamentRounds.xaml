@@ -36,7 +36,7 @@
                 </DataGridTemplateColumn>
 
                 <DataGridTextColumn
-                    Header = "Black"
+                    Header = "Pairing Bye"
                     Width="1*">
                     <DataGridTextColumn.Binding>
                         <MultiBinding StringFormat="{}{0} ({1})">
@@ -47,7 +47,7 @@
                 </DataGridTextColumn>
 
                 <DataGridTemplateColumn
-                    Header="Games"
+                    Header="Requested Byes"
                     Width="1*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
