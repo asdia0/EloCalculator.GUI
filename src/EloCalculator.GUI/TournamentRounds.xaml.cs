@@ -61,7 +61,7 @@
 
         public void ViewReqByes_OnClick(object sender, RoutedEventArgs e)
         {
-            RequestedByes rb = new(((Button)sender).DataContext as TournamentRound);
+            RequestedByes rb = new(this.Tournament, ((Button)sender).DataContext as TournamentRound);
             rb.Show();
         }
     }
