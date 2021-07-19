@@ -29,7 +29,6 @@
                     Width="1*"
                     Binding = "{Binding Path=WhitePlayer.ID, Mode=OneWay}" />
 
-
                 <DataGridTextColumn
                     Header = "Black ID"
                     Width="1*"
