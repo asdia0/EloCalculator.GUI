@@ -60,8 +60,7 @@
 
             if (tournamentGames.Contains(game))
             {
-                Popup popup = Utility.CreatePopup($"Game {game.ID} has already been added to Tournament {this._Tournament.ID} ({this._Tournament.Name})");
-                popup.IsOpen = true;
+                MessageBox.Show($"Game {game.ID} has already been added to Tournament {this._Tournament.ID} ({this._Tournament.Name})", "Exception!");
             }
             else
             {

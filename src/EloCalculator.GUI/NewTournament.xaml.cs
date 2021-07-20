@@ -36,7 +36,7 @@
         {
             if (this.Name.Text == string.Empty)
             {
-                Popup popup = Utility.CreatePopup("Name must not be empty.");
+                MessageBox.Show("Name must not be empty.", "Exception!");
             }
             else
             {

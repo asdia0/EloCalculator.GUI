@@ -2,8 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
-    using System.Windows.Controls;
-    using System.Windows.Controls.Primitives;
+    using System.Windows;
     using EloCalculator;
 
     /// <summary>
@@ -209,20 +208,6 @@
 
                 return tournamentRoundGames;
             }
-        }
-
-        /// <summary>
-        /// Creates a <see cref="Popup"/> displaying a message.
-        /// </summary>
-        /// <param name="message">The message to display.</param>
-        /// <returns>A <see cref="Popup"/> displaying a message.</returns>
-        public static Popup CreatePopup(string message)
-        {
-            Popup popup = new Popup();
-            TextBlock popupText = new TextBlock();
-            popupText.Text = message;
-            popup.Child = popupText;
-            return popup;
         }
     }
 }

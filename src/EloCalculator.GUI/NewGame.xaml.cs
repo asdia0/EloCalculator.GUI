@@ -37,8 +37,7 @@
         {
             if (this.White.SelectedIndex == this.Black.SelectedIndex)
             {
-                Popup popup = Utility.CreatePopup("Players cannot be the same.");
-                popup.IsOpen = true;
+                MessageBox.Show("Players cannot be the same.", "Exception!");
             }
             else
             {

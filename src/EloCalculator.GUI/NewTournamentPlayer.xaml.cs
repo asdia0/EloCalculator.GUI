@@ -32,8 +32,7 @@
 
             if (tournament.Players.Where(i => i.Player == player).Any())
             {
-                Popup popup = Utility.CreatePopup($"Player {player.ID} ({player.Name}) has already been added to Tournament {tournament.ID} ({tournament.Name}).");
-                popup.IsOpen = true;
+                MessageBox.Show($"Player {player.ID} ({player.Name}) has already been added to Tournament {tournament.ID} ({tournament.Name}).", "Exception!");
             }
             else
             {
