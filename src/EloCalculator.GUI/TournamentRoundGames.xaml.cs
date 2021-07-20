@@ -19,6 +19,7 @@
             this.WindowState = WindowState.Maximized;
             this.Tournament = tournament;
             this.TournamentRound = round;
+            Utility.UpdateAll();
             this.DataGrid.ItemsSource = Utility.TournamentRoundGames[this.Tournament][this.TournamentRound];
             this.DataGrid.IsSynchronizedWithCurrentItem = true;
         }
@@ -40,6 +41,8 @@
             }
 
             // TODO: Reload databases
+
+            Utility.UpdateAll();
         }
     }
 }

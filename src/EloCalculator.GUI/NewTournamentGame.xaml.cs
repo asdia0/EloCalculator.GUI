@@ -35,6 +35,7 @@
         public NewTournamentGame()
         {
             this.InitializeComponent();
+            Utility.UpdateAll();
             this.Tournament.ItemsSource = Utility.Tournaments.Select(i => $"{i.ID} ({i.Name})");
             this.Round.ItemsSource = this._Tournament == null ? new() : this._Tournament.Rounds;
             this.Game.ItemsSource = Utility.Games.Select(i => $"{i.ID} ({i.WhitePlayer.Name}-{i.BlackPlayer.Name}, {i.Result}, {i.DateTime})");
@@ -65,6 +66,7 @@
             else
             {
                 this._Tournament.Rounds[this.Round.SelectedIndex].AddGame(Utility.Games[this.Game.SelectedIndex]);
+                Utility.UpdateAll();
                 this.Close();
             }
         }

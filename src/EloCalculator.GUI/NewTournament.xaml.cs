@@ -41,6 +41,7 @@
             else
             {
                 _ = new Tournament(this.Name.Text, (TournamentType)this.Type.SelectedIndex);
+                Utility.UpdateAll();
                 this.Close();
             }
         }

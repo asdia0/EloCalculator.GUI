@@ -42,6 +42,7 @@
             else
             {
                 _ = new Game(PlayerDatabase.Players[this.White.SelectedIndex], PlayerDatabase.Players[this.Black.SelectedIndex], (Result)int.Parse(this.Result.SelectedIndex.ToString()), DateTime.Now, (bool)this.Rated.IsChecked);
+                Utility.UpdateAll();
                 this.Close();
             }
         }

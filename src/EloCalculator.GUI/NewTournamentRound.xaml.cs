@@ -29,6 +29,7 @@
         public void Add_OnClick(object sender, RoutedEventArgs e)
         {
             _ = new TournamentRound(Utility.Tournaments[this.Tournament.SelectedIndex]);
+            Utility.UpdateAll();
             this.Close();
         }
 

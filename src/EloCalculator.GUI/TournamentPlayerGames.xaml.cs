@@ -25,6 +25,7 @@
             this.WindowState = WindowState.Maximized;
             this.Tournament = tournament;
             this.TournamentPlayer = player;
+            Utility.UpdateAll();
             this.DataGrid.ItemsSource = Utility.TournamentPlayerGames[this.Tournament][this.TournamentPlayer];
             this.DataGrid.IsSynchronizedWithCurrentItem = true;
         }
@@ -46,6 +47,8 @@
             }
 
             // TODO: Reload databases.
+
+            Utility.UpdateAll();
         }
     }
 }

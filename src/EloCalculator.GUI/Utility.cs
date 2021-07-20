@@ -13,201 +13,216 @@
         /// <summary>
         /// Gets <see cref="GameDatabase.Games"/> as an <see cref="ObservableCollection{T}"/>.
         /// </summary>
-        public static ObservableCollection<Game> Games
-        {
-            get
-            {
-                ObservableCollection<Game> games = new();
-
-                foreach (Game game in GameDatabase.Games)
-                {
-                    games.Add(game);
-                }
-
-                return games;
-            }
-        }
+        public static ObservableCollection<Game> Games = new();
 
         /// <summary>
         /// Gets <see cref="PlayerDatabase.Players"/> as an <see cref="ObservableCollection{T}"/>.
         /// </summary>
-        public static ObservableCollection<Player> Players
-        {
-            get
-            {
-                ObservableCollection<Player> players = new();
-
-                foreach (Player player in PlayerDatabase.Players)
-                {
-                    players.Add(player);
-                }
-
-                return players;
-            }
-        }
+        public static ObservableCollection<Player> Players = new();
 
         /// <summary>
         /// Gets <see cref="TournamentDatabase.Tournaments"/> as an <see cref="ObservableCollection{T}"/>.
         /// </summary>
-        public static ObservableCollection<Tournament> Tournaments
-        {
-            get
-            {
-                ObservableCollection<Tournament> tournaments = new();
-
-                foreach (Tournament tournament in TournamentDatabase.Tournaments)
-                {
-                    tournaments.Add(tournament);
-                }
-
-                return tournaments;
-            }
-        }
+        public static ObservableCollection<Tournament> Tournaments = new();
 
         /// <summary>
         /// Gets <see cref="TournamentPlayer"/>s as an <see cref="ObservableCollection{T}"/>.
         /// </summary>
-        public static Dictionary<Tournament, ObservableCollection<TournamentPlayer>> TournamentPlayers
-        {
-            get
-            {
-                Dictionary<Tournament, ObservableCollection<TournamentPlayer>> tournamentPlayers = new();
-
-                foreach (Tournament tournament in TournamentDatabase.Tournaments)
-                {
-                    ObservableCollection<TournamentPlayer> players = new();
-
-                    foreach (TournamentPlayer player in tournament.Players)
-                    {
-                        players.Add(player);
-                    }
-
-                    tournamentPlayers.Add(tournament, players);
-                }
-
-                return tournamentPlayers;
-            }
-        }
+        public static Dictionary<Tournament, ObservableCollection<TournamentPlayer>> TournamentPlayers = new();
 
         /// <summary>
         /// Gets <see cref="TournamentRound"/>s as an <see cref="ObservableCollection{T}"/>.
         /// </summary>
-        public static Dictionary<Tournament, ObservableCollection<TournamentRound>> TournamentRounds
-        {
-            get
-            {
-                Dictionary<Tournament, ObservableCollection<TournamentRound>> tournamentRounds = new();
-
-                foreach (Tournament tournament in TournamentDatabase.Tournaments)
-                {
-                    ObservableCollection<TournamentRound> rounds = new();
-
-                    foreach (TournamentRound round in tournament.Rounds)
-                    {
-                        rounds.Add(round);
-                    }
-
-                    tournamentRounds.Add(tournament, rounds);
-                }
-
-                return tournamentRounds;
-            }
-        }
+        public static Dictionary<Tournament, ObservableCollection<TournamentRound>> TournamentRounds = new();
 
         /// <summary>
         /// Gets <see cref="TournamentRound.Games"/> as an <see cref="ObservableCollection{T}"/>.
         /// </summary>
-        public static Dictionary<Tournament, Dictionary<TournamentRound, ObservableCollection<Game>>> TournamentRoundGames
-        {
-            get
-            {
-                Dictionary<Tournament, Dictionary<TournamentRound, ObservableCollection<Game>>> tournamentRoundGames = new();
-
-                foreach (Tournament tournament in TournamentDatabase.Tournaments)
-                {
-                    Dictionary<TournamentRound, ObservableCollection<Game>> rounds = new();
-
-                    foreach (TournamentRound round in tournament.Rounds)
-                    {
-                        ObservableCollection<Game> games = new();
-
-                        foreach (Game game in round.Games)
-                        {
-                            games.Add(game);
-                        }
-
-                        rounds.Add(round, games);
-                    }
-
-                    tournamentRoundGames.Add(tournament, rounds);
-                }
-
-                return tournamentRoundGames;
-            }
-        }
+        public static Dictionary<Tournament, Dictionary<TournamentRound, ObservableCollection<Game>>> TournamentRoundGames = new();
 
         /// <summary>
         /// Gets <see cref="TournamentPlayer.Games"/> as an <see cref="ObservableCollection{T}"/>.
         /// </summary>
-        public static Dictionary<Tournament, Dictionary<TournamentPlayer, ObservableCollection<Game>>> TournamentPlayerGames
-        {
-            get
-            {
-                Dictionary<Tournament, Dictionary<TournamentPlayer, ObservableCollection<Game>>> tournamentPlayerGames = new();
-
-                foreach (Tournament tournament in TournamentDatabase.Tournaments)
-                {
-                    Dictionary<TournamentPlayer, ObservableCollection<Game>> rounds = new();
-
-                    foreach (TournamentPlayer player in tournament.Players)
-                    {
-                        ObservableCollection<Game> games = new();
-
-                        foreach (Game game in player.Games)
-                        {
-                            games.Add(game);
-                        }
-
-                        rounds.Add(player, games);
-                    }
-
-                    tournamentPlayerGames.Add(tournament, rounds);
-                }
-
-                return tournamentPlayerGames;
-            }
-        }
+        public static Dictionary<Tournament, Dictionary<TournamentPlayer, ObservableCollection<Game>>> TournamentPlayerGames = new();
 
         /// <summary>
         /// Gets <see cref="TournamentRound.RequestedByes"/> as an <see cref="ObservableCollection{T}"/>.
         /// </summary>
-        public static Dictionary<Tournament, Dictionary<TournamentRound, ObservableCollection<TournamentPlayer>>> TournamentRoundRequestedByes
+        public static Dictionary<Tournament, Dictionary<TournamentRound, ObservableCollection<TournamentPlayer>>> TournamentRoundRequestedByes = new();
+
+        /// <summary>
+        /// Updates <see cref="Games"/>.
+        /// </summary>
+        public static void UpdateGames()
         {
-            get
+            Games.Clear();
+
+            foreach (Game game in GameDatabase.Games)
             {
-                Dictionary<Tournament, Dictionary<TournamentRound, ObservableCollection<TournamentPlayer>>> tournamentRoundGames = new();
+                Games.Add(game);
+            }
+        }
 
-                foreach (Tournament tournament in TournamentDatabase.Tournaments)
+        /// <summary>
+        /// Updates <see cref="Players"/>.
+        /// </summary>
+        public static void UpdatePlayers()
+        {
+            Players.Clear();
+
+            foreach (Player player in PlayerDatabase.Players)
+            {
+                Players.Add(player);
+            }
+        }
+
+        /// <summary>
+        /// Updates <see cref="Tournaments"/>.
+        /// </summary>
+        public static void UpdateTournaments()
+        {
+            Tournaments.Clear();
+
+            foreach (Tournament tournament in TournamentDatabase.Tournaments)
+            {
+                Tournaments.Add(tournament);
+            }
+        }
+
+        /// <summary>
+        /// Updates <see cref="TournamentPlayers"/>.
+        /// </summary>
+        public static void UpdateTournamentPlayers()
+        {
+            TournamentPlayers.Clear();
+
+            foreach (Tournament tournament in TournamentDatabase.Tournaments)
+            {
+                ObservableCollection<TournamentPlayer> players = new();
+
+                foreach (TournamentPlayer player in tournament.Players)
                 {
-                    Dictionary<TournamentRound, ObservableCollection<TournamentPlayer>> rounds = new();
-
-                    foreach (TournamentRound round in tournament.Rounds)
-                    {
-                        ObservableCollection<TournamentPlayer> players = new();
-
-                        foreach (TournamentPlayer player in round.RequestedByes)
-                        {
-                            players.Add(player);
-                        }
-
-                        rounds.Add(round, players);
-                    }
-
-                    tournamentRoundGames.Add(tournament, rounds);
+                    players.Add(player);
                 }
 
-                return tournamentRoundGames;
+                TournamentPlayers.Add(tournament, players);
             }
+        }
+
+        /// <summary>
+        /// Updates <see cref="TournamentRounds"/>.
+        /// </summary>
+        public static void UpdateTournamentRounds()
+        {
+            TournamentRounds.Clear();
+
+            foreach (Tournament tournament in TournamentDatabase.Tournaments)
+            {
+                ObservableCollection<TournamentRound> rounds = new();
+
+                foreach (TournamentRound round in tournament.Rounds)
+                {
+                    rounds.Add(round);
+                }
+
+                TournamentRounds.Add(tournament, rounds);
+            }
+        }
+
+        /// <summary>
+        /// Updates <see cref="TournamentRoundGames"/>.
+        /// </summary>
+        public static void UpdateTournamentRoundGames()
+        {
+            TournamentRoundGames.Clear();
+
+            foreach (Tournament tournament in TournamentDatabase.Tournaments)
+            {
+                Dictionary<TournamentRound, ObservableCollection<Game>> rounds = new();
+
+                foreach (TournamentRound round in tournament.Rounds)
+                {
+                    ObservableCollection<Game> games = new();
+
+                    foreach (Game game in round.Games)
+                    {
+                        games.Add(game);
+                    }
+
+                    rounds.Add(round, games);
+                }
+
+                TournamentRoundGames.Add(tournament, rounds);
+            }
+        }
+
+        /// <summary>
+        /// Updates <see cref="TournamentPlayerGames"/>.
+        /// </summary>
+        public static void UpdateTournamentPlayerGames()
+        {
+            TournamentPlayerGames.Clear();
+
+            foreach (Tournament tournament in TournamentDatabase.Tournaments)
+            {
+                Dictionary<TournamentPlayer, ObservableCollection<Game>> rounds = new();
+
+                foreach (TournamentPlayer player in tournament.Players)
+                {
+                    ObservableCollection<Game> games = new();
+
+                    foreach (Game game in player.Games)
+                    {
+                        games.Add(game);
+                    }
+
+                    rounds.Add(player, games);
+                }
+
+                TournamentPlayerGames.Add(tournament, rounds);
+            }
+        }
+
+        /// <summary>
+        /// Updates <see cref="TournamentRoundRequestedByes"/>.
+        /// </summary>
+        public static void UpdateTournamentRoundRequestedByes()
+        {
+            TournamentRoundRequestedByes.Clear();
+
+            foreach (Tournament tournament in TournamentDatabase.Tournaments)
+            {
+                Dictionary<TournamentRound, ObservableCollection<TournamentPlayer>> rounds = new();
+
+                foreach (TournamentRound round in tournament.Rounds)
+                {
+                    ObservableCollection<TournamentPlayer> players = new();
+
+                    foreach (TournamentPlayer player in round.RequestedByes)
+                    {
+                        players.Add(player);
+                    }
+
+                    rounds.Add(round, players);
+                }
+
+                TournamentRoundRequestedByes.Add(tournament, rounds);
+            }
+        }
+
+        /// <summary>
+        /// Updates all properties.
+        /// </summary>
+        public static void UpdateAll()
+        {
+            UpdateGames();
+            UpdatePlayers();
+            UpdateTournamentPlayerGames();
+            UpdateTournamentPlayers();
+            UpdateTournamentRoundGames();
+            UpdateTournamentRoundRequestedByes();
+            UpdateTournamentRounds();
+            UpdateTournaments();
         }
     }
 }

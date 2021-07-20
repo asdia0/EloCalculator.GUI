@@ -18,8 +18,9 @@
             this.InitializeComponent();
             this.WindowState = WindowState.Maximized;
             _ = new Game(new("Player 1"), new("Player 2"), Result.White, DateTime.Now, true);
+            Utility.UpdateAll();
             this.DataGrid.ItemsSource = Utility.Games;
-            this.DataGrid.IsSynchronizedWithCurrentItem = true;
+            this.DataGrid.IsSynchronizedWithCurrentItem = false;
         }
 
         /// <summary>
@@ -39,6 +40,8 @@
             }
 
             // TODO: Reload databases.
+
+            Utility.UpdateAll();
         }
     }
 }

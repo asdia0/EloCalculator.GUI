@@ -16,6 +16,7 @@
         {
             this.InitializeComponent();
             this.WindowState = WindowState.Maximized;
+            Utility.UpdateAll();
             this.DataGrid.ItemsSource = Utility.Players;
             this.DataGrid.IsSynchronizedWithCurrentItem = true;
         }
@@ -41,6 +42,8 @@
             }
 
             // TODO: Reload databases.
+
+            Utility.UpdateAll();
         }
 
         /// <summary>

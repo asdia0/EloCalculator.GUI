@@ -31,6 +31,7 @@
             else
             {
                 _ = new Player(this.Name.Text);
+                Utility.UpdateAll();
                 this.Close();
             }
         }

@@ -37,6 +37,7 @@
             else
             {
                 _ = new TournamentPlayer(tournament, player);
+                Utility.UpdateAll();
                 this.Close();
             }
         }

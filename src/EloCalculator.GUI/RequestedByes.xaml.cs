@@ -24,6 +24,7 @@
             this.WindowState = WindowState.Maximized;
             this.Tournament = tournament;
             this.TournamentRound = round;
+            Utility.UpdateAll();
             this.DataGrid.ItemsSource = this.TournamentRound.RequestedByes;
             this.DataGrid.IsSynchronizedWithCurrentItem = true;
         }
@@ -45,6 +46,8 @@
             }
 
             // TODO: Reload databases.
+
+            Utility.UpdateAll();
         }
 
         /// <summary>

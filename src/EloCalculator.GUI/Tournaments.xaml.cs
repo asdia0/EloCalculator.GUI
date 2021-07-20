@@ -16,6 +16,7 @@
         {
             this.InitializeComponent();
             this.WindowState = WindowState.Maximized;
+            Utility.UpdateAll();
             this.DataGrid.ItemsSource = Utility.Tournaments;
             this.DataGrid.IsSynchronizedWithCurrentItem = true;
         }
@@ -37,6 +38,8 @@
             }
 
             // TODO: Reload databases.
+
+            Utility.UpdateAll();
         }
 
         /// <summary>
