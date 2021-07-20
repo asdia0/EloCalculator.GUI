@@ -11,9 +11,7 @@
     /// </summary>
     public partial class TournamentPlayers : Window
     {
-        private Tournament Tournament { get; set; }
-
-        private ObservableCollection<TournamentPlayer> Players { get; set; }
+        public Tournament Tournament { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TournamentPlayers"/> class.
@@ -26,8 +24,7 @@
             this.WindowState = WindowState.Maximized;
             this.Tournament = tournament;
             Utility.UpdateAll();
-            this.Players = Utility.TournamentPlayers[this.Tournament];
-            this.DataGrid.ItemsSource = this.Players;
+            this.DataGrid.ItemsSource = this.Tournament.Players.Distinct();
             this.DataGrid.IsSynchronizedWithCurrentItem = true;
         }
 

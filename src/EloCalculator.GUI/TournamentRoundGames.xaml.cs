@@ -9,9 +9,9 @@
     /// </summary>
     public partial class TournamentRoundGames : Window
     {
-        private Tournament Tournament { get; set; }
+        public Tournament Tournament { get; set; }
 
-        private TournamentRound TournamentRound { get; set; }
+        public TournamentRound TournamentRound { get; set; }
 
         public TournamentRoundGames(Tournament tournament, TournamentRound round)
         {

@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
+    using System.Linq;
     using System.Windows;
     using EloCalculator;
 
@@ -167,7 +168,7 @@
             {
                 Dictionary<TournamentPlayer, ObservableCollection<Game>> rounds = new();
 
-                foreach (TournamentPlayer player in tournament.Players)
+                foreach (TournamentPlayer player in tournament.Players.Distinct())
                 {
                     ObservableCollection<Game> games = new();
 
@@ -223,6 +224,46 @@
             UpdateTournamentRoundRequestedByes();
             UpdateTournamentRounds();
             UpdateTournaments();
+        }
+
+        public static void RefreshWindows()
+        {
+            foreach (var window in App.Current.Windows)
+            {
+                Tournament tournament = null;
+                TournamentRound round = null;
+                TournamentPlayer player = null;
+
+                switch (window.GetType().ToString())
+                {
+                    case "EloCalculator.GUI.TournamentPlayerGames":
+                        tournament = ((TournamentPlayerGames)window).Tournament;
+                        player = ((TournamentPlayerGames)window).TournamentPlayer;
+                        ((Window)window).Close();
+                        TournamentPlayerGames tpg = new(tournament, player);
+                        tpg.Show();
+                        break;
+                    case "EloCalculator.GUI.TournamentPlayers":
+                        tournament = ((TournamentPlayers)window).Tournament;
+                        ((Window)window).Close();
+                        TournamentPlayers tp = new(tournament);
+                        tp.Show();
+                        break;
+                    case "EloCalculator.GUI.TournamentRoundGames":
+                        tournament = ((TournamentRoundGames)window).Tournament;
+                        round = ((TournamentRoundGames)window).TournamentRound;
+                        ((Window)window).Close();
+                        TournamentRoundGames trg = new(tournament, round);
+                        trg.Show();
+                        break;
+                    case "EloCalculator.GUI.TournamentRounds":
+                        tournament = ((TournamentRounds)window).Tournament;
+                        ((Window)window).Close();
+                        TournamentRounds tr = new(tournament);
+                        tr.Show();
+                        break;
+                }
+            }
         }
     }
 }

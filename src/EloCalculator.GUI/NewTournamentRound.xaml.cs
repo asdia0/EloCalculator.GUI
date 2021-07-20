@@ -30,6 +30,7 @@
         {
             _ = new TournamentRound(Utility.Tournaments[this.Tournament.SelectedIndex]);
             Utility.UpdateAll();
+            Utility.RefreshWindows();
             this.Close();
         }
 

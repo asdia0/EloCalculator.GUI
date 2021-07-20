@@ -71,8 +71,9 @@
             }
             else
             {
-                this._Tournament.Rounds[this.Round.SelectedIndex].AddGame(Utility.Games[this.Game.SelectedIndex]);
+                this._Tournament.Rounds[this.Round.SelectedIndex].AddGame(game);
                 Utility.UpdateAll();
+                Utility.RefreshWindows();
                 this.Close();
             }
         }

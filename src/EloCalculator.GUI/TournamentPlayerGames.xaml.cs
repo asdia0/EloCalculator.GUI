@@ -10,9 +10,9 @@
     /// </summary>
     public partial class TournamentPlayerGames : Window
     {
-        private Tournament Tournament { get; set; }
+        public Tournament Tournament { get; set; }
 
-        private TournamentPlayer TournamentPlayer { get; set; }
+        public TournamentPlayer TournamentPlayer { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TournamentPlayerGames"/> class.

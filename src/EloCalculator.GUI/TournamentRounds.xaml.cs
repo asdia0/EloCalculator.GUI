@@ -9,7 +9,7 @@
     /// </summary>
     public partial class TournamentRounds : Window
     {
-        private Tournament Tournament { get; set; }
+        public Tournament Tournament { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TournamentRounds"/> class.

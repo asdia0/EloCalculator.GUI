@@ -38,6 +38,7 @@
             {
                 _ = new TournamentPlayer(tournament, player);
                 Utility.UpdateAll();
+                Utility.RefreshWindows();
                 this.Close();
             }
         }
