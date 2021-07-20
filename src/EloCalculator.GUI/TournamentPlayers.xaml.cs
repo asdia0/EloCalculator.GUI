@@ -24,7 +24,7 @@
             this.WindowState = WindowState.Maximized;
             this.Tournament = tournament;
             Utility.UpdateAll();
-            this.DataGrid.ItemsSource = this.Tournament.Players.Distinct();
+            this.DataGrid.ItemsSource = this.Tournament.Players.Distinct().ToList();
             this.DataGrid.IsSynchronizedWithCurrentItem = true;
         }
 
