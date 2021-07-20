@@ -37,11 +37,17 @@
             this.InitializeComponent();
             Utility.UpdateAll();
             this.Tournament.ItemsSource = Utility.Tournaments.Select(i => $"{i.ID} ({i.Name})");
-            this.Round.ItemsSource = this._Tournament == null ? new() : this._Tournament.Rounds;
+            this.Round.ItemsSource = this._Tournament == null ? new List<string>() : this._Tournament.Rounds.Select(i => $"Round {i.ID}");
             this.Game.ItemsSource = Utility.Games.Select(i => $"{i.ID} ({i.WhitePlayer.Name}-{i.BlackPlayer.Name}, {i.Result}, {i.DateTime})");
             this.Tournament.SelectedIndex = 0;
             this.Round.SelectedIndex = 0;
             this.Game.SelectedIndex = 0;
+        }
+
+        public void Tournament_OnChange(object sender, RoutedEventArgs e)
+        {
+            this.Round.ItemsSource = this._Tournament == null ? new List<string>() : this._Tournament.Rounds.Select(i => $"Round {i.ID}");
+            this.Round.SelectedIndex = 0;
         }
 
         /// <summary>
