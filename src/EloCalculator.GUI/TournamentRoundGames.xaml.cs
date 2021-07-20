@@ -16,6 +16,7 @@
         public TournamentRoundGames(Tournament tournament, TournamentRound round)
         {
             this.InitializeComponent();
+            this.Title = $"EloCalculator: {tournament.Name} Round {round.ID}'s Games";
             this.WindowState = WindowState.Maximized;
             this.Tournament = tournament;
             this.TournamentRound = round;

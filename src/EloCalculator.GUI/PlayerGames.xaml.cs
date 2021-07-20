@@ -18,6 +18,7 @@
         public PlayerGames(Player player)
         {
             this.InitializeComponent();
+            this.Title = $"EloCalculator: {player.Name}'s Games";
             this.WindowState = WindowState.Maximized;
             Utility.UpdateAll();
             this.DataGrid.ItemsSource = Utility.Games.Where(i => i.WhitePlayer == player || i.BlackPlayer == player);

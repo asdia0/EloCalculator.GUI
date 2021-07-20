@@ -22,6 +22,7 @@
         public TournamentPlayerGames(Tournament tournament, TournamentPlayer player)
         {
             this.InitializeComponent();
+            this.Title = $"EloCalculator: {player.Player.Name}'s Games in {tournament.Name}";
             this.WindowState = WindowState.Maximized;
             this.Tournament = tournament;
             this.TournamentPlayer = player;

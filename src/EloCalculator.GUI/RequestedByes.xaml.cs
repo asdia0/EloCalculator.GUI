@@ -21,6 +21,7 @@
         public RequestedByes(Tournament tournament, TournamentRound round)
         {
             this.InitializeComponent();
+            this.Title = $"EloCalculator: {tournament.Name} Round {round.ID} Requested Byes";
             this.WindowState = WindowState.Maximized;
             this.Tournament = tournament;
             this.TournamentRound = round;
