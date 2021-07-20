@@ -1,35 +1,33 @@
 ﻿namespace EloCalculator.GUI
 {
-    using System;
     using System.Data;
-    using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using System.Windows;
     using System.Windows.Controls;
-    using System.Windows.Data;
-    using System.Windows.Documents;
     using System.Windows.Input;
-    using System.Windows.Media;
-    using System.Windows.Media.Imaging;
-    using System.Windows.Shapes;
-    using System.Collections.ObjectModel;
 
     /// <summary>
-    /// Interaction logic for Games.xaml.
+    /// Interaction logic for PlayerGames.xaml.
     /// </summary>
     public partial class PlayerGames : Window
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PlayerGames"/> class.
+        /// </summary>
+        /// <param name="player">The <see cref="Player"/> to display.</param>
         public PlayerGames(Player player)
         {
             this.InitializeComponent();
             this.WindowState = WindowState.Maximized;
-            Utility.UpdateGames();
             this.DataGrid.ItemsSource = Utility.Games.Where(i => i.WhitePlayer == player || i.BlackPlayer == player);
             this.DataGrid.IsSynchronizedWithCurrentItem = true;
         }
 
+        /// <summary>
+        /// Delete <see cref="Game"/>s when the DEL key is pressed.
+        /// </summary>
+        /// <param name="sender">The object that sent the event.</param>
+        /// <param name="e">The event.</param>
         public void PreviewKeyDownHandler(object sender, KeyEventArgs e)
         {
             DataGrid grid = (DataGrid)sender;
@@ -41,13 +39,7 @@
                 }
             }
 
-            // Update player stats
-
-            // Update tournament stats
-
-            Utility.UpdateGames();
-            Utility.UpdatePlayers();
-            Utility.UpdateTournaments();
+            // TODO: Reload databases.
         }
     }
 }

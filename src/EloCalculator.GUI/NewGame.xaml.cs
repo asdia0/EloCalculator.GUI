@@ -4,18 +4,22 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Windows;
+    using System.Windows.Controls.Primitives;
     using EloCalculator;
 
     /// <summary>
-    /// Interaction logic for NewGame.xaml
+    /// Interaction logic for NewGame.xaml.
     /// </summary>
     public partial class NewGame : Window
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="NewGame"/> class.
+        /// </summary>
         public NewGame()
         {
             this.InitializeComponent();
-            this.WhiteID.ItemsSource = PlayerDatabase.Players.Select(i => $"{i.ID} ({i.Name})");
-            this.BlackID.ItemsSource = PlayerDatabase.Players.Select(i => $"{i.ID} ({i.Name})");
+            this.White.ItemsSource = PlayerDatabase.Players.Select(i => $"{i.ID} ({i.Name})");
+            this.Black.ItemsSource = PlayerDatabase.Players.Select(i => $"{i.ID} ({i.Name})");
             this.Result.ItemsSource = new List<string>()
             {
                 "White",
@@ -24,21 +28,30 @@
             };
         }
 
+        /// <summary>
+        /// Adds a new <see cref="Game"/> to <see cref="GameDatabase.Games"/>.
+        /// </summary>
+        /// <param name="sender">The object that sent the event.</param>
+        /// <param name="e">The event.</param>
         public void Add_OnClick(object sender, RoutedEventArgs e)
         {
-            if (this.WhiteID.SelectedIndex == this.BlackID.SelectedIndex)
+            if (this.White.SelectedIndex == this.Black.SelectedIndex)
             {
-                // create new window
+                Popup popup = Utility.CreatePopup("Players cannot be the same.");
+                popup.IsOpen = true;
             }
             else
             {
-                Game g = new Game(PlayerDatabase.Players[this.WhiteID.SelectedIndex], PlayerDatabase.Players[this.BlackID.SelectedIndex], (Result)int.Parse(this.Result.SelectedIndex.ToString()), DateTime.Now, (bool)this.Rated.IsChecked);
-                Utility.UpdateGames();
-                Utility.UpdatePlayers();
+                _ = new Game(PlayerDatabase.Players[this.White.SelectedIndex], PlayerDatabase.Players[this.Black.SelectedIndex], (Result)int.Parse(this.Result.SelectedIndex.ToString()), DateTime.Now, (bool)this.Rated.IsChecked);
+                this.Close();
             }
-            this.Close();
         }
 
+        /// <summary>
+        /// Closes the window.
+        /// </summary>
+        /// <param name="sender">The object that sent the event.</param>
+        /// <param name="e">The event.</param>
         public void Cancel_OnClick(object sender, RoutedEventArgs e)
         {
             this.Close();

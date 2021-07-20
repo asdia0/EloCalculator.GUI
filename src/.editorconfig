@@ -26,3 +26,9 @@ dotnet_diagnostic.SA1306.severity = none
 
 # SA0001: XML comment analysis disabled
 dotnet_diagnostic.SA0001.severity = none
+
+# SA1300: Element should begin with upper-case letter
+dotnet_diagnostic.SA1300.severity = none
+
+# CS0108: Member hides inherited member; missing new keyword
+dotnet_diagnostic.CS0108.severity = none

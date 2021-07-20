@@ -1,53 +1,53 @@
 ﻿namespace EloCalculator.GUI
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using System.Windows;
     using System.Windows.Controls;
-    using System.Windows.Data;
-    using System.Windows.Documents;
     using System.Windows.Input;
-    using System.Windows.Media;
-    using System.Windows.Media.Imaging;
-    using System.Windows.Shapes;
 
     /// <summary>
     /// Interaction logic for Players.xaml.
     /// </summary>
     public partial class Players : Window
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Players"/> class.
+        /// </summary>
         public Players()
         {
             this.InitializeComponent();
             this.WindowState = WindowState.Maximized;
-            Utility.UpdatePlayers();
             this.DataGrid.ItemsSource = Utility.Players;
             this.DataGrid.IsSynchronizedWithCurrentItem = true;
         }
 
+        /// <summary>
+        /// Delete <see cref="Player"/>s when the DEL key is pressed.
+        /// </summary>
+        /// <param name="sender">The object that sent the event.</param>
+        /// <param name="e">The event.</param>
         public void PreviewKeyDownHandler(object sender, KeyEventArgs e)
         {
             DataGrid grid = (DataGrid)sender;
             if (e.Key == Key.Delete)
             {
-                foreach (Game game in grid.SelectedItems)
+                foreach (Player player in grid.SelectedItems)
                 {
-                    GameDatabase.Games.Remove(game);
+                    // Remove games the player played.
+                    GameDatabase.Games.RemoveAll(i => i.WhitePlayer == player || i.BlackPlayer == player);
+
+                    // Remove player from the database.
+                    PlayerDatabase.Players.Remove(player);
                 }
             }
 
-            // Update player stats
-
-            // Update tournament stats
-
-            Utility.UpdateGames();
-            Utility.UpdatePlayers();
-            Utility.UpdateTournaments();
+            // TODO: Reload databases.
         }
 
+        /// <summary>
+        /// Opens <see cref="PlayerGames"/>.
+        /// </summary>
+        /// <param name="sender">The object that sent the event.</param>
+        /// <param name="e">The event.</param>
         public void ViewGames_OnClick(object sender, RoutedEventArgs e)
         {
             PlayerGames pg = new(((Button)sender).DataContext as Player);

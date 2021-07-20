@@ -1,45 +1,39 @@
 ﻿namespace EloCalculator.GUI
 {
-    using System;
-    using System.Data;
-    using System.Collections.Generic;
     using System.Linq;
-    using System.Collections.ObjectModel;
-    using System.Text;
-    using System.Threading.Tasks;
     using System.Windows;
     using System.Windows.Controls;
-    using System.Windows.Data;
-    using System.Windows.Documents;
     using System.Windows.Input;
-    using System.Windows.Media;
-    using System.Windows.Media.Imaging;
-    using System.Windows.Shapes;
-    using System.Collections.ObjectModel;
 
     /// <summary>
-    /// Interaction logic for Games.xaml.
+    /// Interaction logic for TournamentPlayerGames.xaml.
     /// </summary>
     public partial class TournamentPlayerGames : Window
     {
-        public Tournament Tournament { get; set; }
+        private Tournament Tournament { get; set; }
 
-        public TournamentPlayer TournamentPlayer { get; set; }
+        private TournamentPlayer TournamentPlayer { get; set; }
 
-        public ObservableCollection<Game> Games { get; set; }
-
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TournamentPlayerGames"/> class.
+        /// </summary>
+        /// <param name="tournament">The <see cref="EloCalculator.Tournament"/> the <see cref="EloCalculator.TournamentPlayer"/> is from.</param>
+        /// <param name="player">The <see cref="EloCalculator.TournamentPlayer"/> to display.</param>
         public TournamentPlayerGames(Tournament tournament, TournamentPlayer player)
         {
             this.InitializeComponent();
             this.WindowState = WindowState.Maximized;
             this.Tournament = tournament;
             this.TournamentPlayer = player;
-            this.Games = new();
-            this.UpdateGames();
-            this.DataGrid.ItemsSource = this.Games;
+            this.DataGrid.ItemsSource = Utility.TournamentPlayerGames[this.Tournament][this.TournamentPlayer];
             this.DataGrid.IsSynchronizedWithCurrentItem = true;
         }
 
+        /// <summary>
+        /// Delete <see cref="Game"/>s when the DEL key is pressed.
+        /// </summary>
+        /// <param name="sender">The object that sent the event.</param>
+        /// <param name="e">The event.</param>
         public void PreviewKeyDownHandler(object sender, KeyEventArgs e)
         {
             DataGrid grid = (DataGrid)sender;
@@ -51,28 +45,7 @@
                 }
             }
 
-            // Update player stats
-
-            // Update tournament stats
-
-            Utility.UpdateGames();
-            Utility.UpdatePlayers();
-            Utility.UpdateTournaments();
-        }
-
-        public void UpdateGames()
-        {
-            this.Games.Clear();
-            foreach (TournamentRound round in this.Tournament.Rounds)
-            {
-                foreach (Game game in round.Games)
-                {
-                    if (game.WhitePlayer == this.TournamentPlayer.Player || game.BlackPlayer == this.TournamentPlayer.Player)
-                    {
-                        this.Games.Add(game);
-                    }
-                }
-            }
+            // TODO: Reload databases.
         }
     }
 }

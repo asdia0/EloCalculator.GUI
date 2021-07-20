@@ -1,66 +1,65 @@
 ﻿namespace EloCalculator.GUI
 {
-    using System;
-    using System.Data;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Collections.ObjectModel;
-    using System.Text;
-    using System.Threading.Tasks;
     using System.Windows;
     using System.Windows.Controls;
-    using System.Windows.Data;
-    using System.Windows.Documents;
     using System.Windows.Input;
-    using System.Windows.Media;
-    using System.Windows.Media.Imaging;
-    using System.Windows.Shapes;
-    using System.Collections.ObjectModel;
 
     /// <summary>
-    /// Interaction logic for Games.xaml.
+    /// Interaction logic for TournamentRounds.xaml.
     /// </summary>
     public partial class TournamentRounds : Window
     {
-        public Tournament Tournament { get; set; }
+        private Tournament Tournament { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TournamentRounds"/> class.
+        /// </summary>
+        /// <param name="tournament">The <see cref="EloCalculator.Tournament"/> to display.</param>
         public TournamentRounds(Tournament tournament)
         {
             this.InitializeComponent();
             this.WindowState = WindowState.Maximized;
             this.Tournament = tournament;
-            Utility.UpdateTournamentRounds(this.Tournament);
-            this.DataGrid.ItemsSource = Utility.TournamentRounds;
+            this.DataGrid.ItemsSource = Utility.TournamentRounds[this.Tournament];
             this.DataGrid.IsSynchronizedWithCurrentItem = true;
         }
 
+        /// <summary>
+        /// Delete <see cref="TournamentRound"/>s when the DEL key is pressed.
+        /// </summary>
+        /// <param name="sender">The object that sent the event.</param>
+        /// <param name="e">The event.</param>
         public void PreviewKeyDownHandler(object sender, KeyEventArgs e)
         {
             DataGrid grid = (DataGrid)sender;
             if (e.Key == Key.Delete)
             {
-                foreach (Game game in grid.SelectedItems)
+                foreach (TournamentRound rounds in grid.SelectedItems)
                 {
-                    GameDatabase.Games.Remove(game);
+                    this.Tournament.Rounds.Remove(rounds);
                 }
             }
 
-            // Update player stats
-
-            // Update tournament stats
-
-            Utility.UpdateGames();
-            Utility.UpdatePlayers();
-            Utility.UpdateTournaments();
+            // TODO: Reload databases
         }
 
+        /// <summary>
+        /// Opens <see cref="TournamentRoundGames"/>.
+        /// </summary>
+        /// <param name="sender">The object that sent the event.</param>
+        /// <param name="e">The event.</param>
         public void ViewGames_OnClick(object sender, RoutedEventArgs e)
         {
-            TournamentRoundGames trg = new(((Button)sender).DataContext as TournamentRound);
+            TournamentRoundGames trg = new(this.Tournament, ((Button)sender).DataContext as TournamentRound);
             trg.Show();
             Window.GetWindow(this).Close();
         }
 
+        /// <summary>
+        /// Opens <see cref="RequestedByes"/>.
+        /// </summary>
+        /// <param name="sender">The object that sent the event.</param>
+        /// <param name="e">The event.</param>
         public void ViewReqByes_OnClick(object sender, RoutedEventArgs e)
         {
             RequestedByes rb = new(this.Tournament, ((Button)sender).DataContext as TournamentRound);

@@ -1,37 +1,30 @@
 ﻿namespace EloCalculator.GUI
 {
-    using System;
-    using System.Data;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using System.Windows;
     using System.Windows.Controls;
-    using System.Windows.Data;
-    using System.Windows.Documents;
     using System.Windows.Input;
-    using System.Windows.Media;
-    using System.Windows.Media.Imaging;
-    using System.Windows.Shapes;
-    using System.Collections.ObjectModel;
 
     /// <summary>
     /// Interaction logic for Games.xaml.
     /// </summary>
     public partial class Tournaments : Window
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Tournaments"/> class.
+        /// </summary>
         public Tournaments()
         {
             this.InitializeComponent();
             this.WindowState = WindowState.Maximized;
-            Game add = new(new("Player 1"), new("Player 2"), Result.White, DateTime.Now, true);
-
-            Utility.UpdateGames();
             this.DataGrid.ItemsSource = Utility.Tournaments;
             this.DataGrid.IsSynchronizedWithCurrentItem = true;
         }
 
+        /// <summary>
+        /// Delete <see cref="Tournament"/>s when the DEL key is pressed.
+        /// </summary>
+        /// <param name="sender">The object that sent the event.</param>
+        /// <param name="e">The event.</param>
         public void PreviewKeyDownHandler(object sender, KeyEventArgs e)
         {
             DataGrid grid = (DataGrid)sender;
@@ -42,8 +35,15 @@
                     TournamentDatabase.Tournaments.Remove(tournament);
                 }
             }
+
+            // TODO: Reload databases.
         }
 
+        /// <summary>
+        /// Opens <see cref="TournamentPlayers"/>.
+        /// </summary>
+        /// <param name="sender">The object that sent the event.</param>
+        /// <param name="e">The event.</param>
         public void ViewPlayers_OnClick(object sender, RoutedEventArgs e)
         {
             TournamentPlayers tp = new(((Button)sender).DataContext as Tournament);
@@ -51,6 +51,11 @@
             Window.GetWindow(this).Close();
         }
 
+        /// <summary>
+        /// Opens <see cref="TournamentRounds"/>.
+        /// </summary>
+        /// <param name="sender">The object that sent the event.</param>
+        /// <param name="e">The event.</param>
         public void ViewRounds_OnClick(object sender, RoutedEventArgs e)
         {
             TournamentRounds tp = new(((Button)sender).DataContext as Tournament);

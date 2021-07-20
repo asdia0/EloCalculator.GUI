@@ -1,39 +1,33 @@
 ﻿namespace EloCalculator.GUI
 {
-    using System;
-    using System.Data;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Collections.ObjectModel;
-    using System.Text;
-    using System.Threading.Tasks;
     using System.Windows;
     using System.Windows.Controls;
-    using System.Windows.Data;
-    using System.Windows.Documents;
     using System.Windows.Input;
-    using System.Windows.Media;
-    using System.Windows.Media.Imaging;
-    using System.Windows.Shapes;
-    using System.Collections.ObjectModel;
 
     /// <summary>
-    /// Interaction logic for Games.xaml.
+    /// Interaction logic for TournamentRoundGames.xaml.
     /// </summary>
     public partial class TournamentRoundGames : Window
     {
-        public TournamentRound TournamentRound { get; set; }
+        private Tournament Tournament { get; set; }
 
-        public TournamentRoundGames(TournamentRound round)
+        private TournamentRound TournamentRound { get; set; }
+
+        public TournamentRoundGames(Tournament tournament, TournamentRound round)
         {
             this.InitializeComponent();
             this.WindowState = WindowState.Maximized;
+            this.Tournament = tournament;
             this.TournamentRound = round;
-            Utility.UpdateTournamentRoundGames(this.TournamentRound);
-            this.DataGrid.ItemsSource = Utility.TournamentRoundGames;
+            this.DataGrid.ItemsSource = Utility.TournamentRoundGames[this.Tournament][this.TournamentRound];
             this.DataGrid.IsSynchronizedWithCurrentItem = true;
         }
 
+        /// <summary>
+        /// Delete <see cref="Game"/>s when the DEL key is pressed.
+        /// </summary>
+        /// <param name="sender">The object that sent the event.</param>
+        /// <param name="e">The event.</param>
         public void PreviewKeyDownHandler(object sender, KeyEventArgs e)
         {
             DataGrid grid = (DataGrid)sender;
@@ -41,17 +35,11 @@
             {
                 foreach (Game game in grid.SelectedItems)
                 {
-                    GameDatabase.Games.Remove(game);
+                    this.TournamentRound.Games.Remove(game);
                 }
             }
 
-            // Update player stats
-
-            // Update tournament stats
-
-            Utility.UpdateGames();
-            Utility.UpdatePlayers();
-            Utility.UpdateTournaments();
+            // TODO: Reload databases
         }
     }
 }

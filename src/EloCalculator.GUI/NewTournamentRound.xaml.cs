@@ -7,26 +7,36 @@
     using EloCalculator;
 
     /// <summary>
-    /// Interaction logic for NewGame.xaml
+    /// Interaction logic for NewTournamentRound.xaml.
     /// </summary>
     public partial class NewTournamentRound : Window
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="NewTournamentRound"/> class.
+        /// </summary>
         public NewTournamentRound()
         {
             this.InitializeComponent();
-            Utility.UpdatePlayers();
-            Utility.UpdateTournaments();
             this.Tournament.ItemsSource = Utility.Tournaments.Select(i => $"{i.ID} ({i.Name})");
+            this.Tournament.SelectedIndex = 0;
         }
 
+        /// <summary>
+        /// Adds a <see cref="TournamentRound"/> to a <see cref="EloCalculator.Tournament"/>.
+        /// </summary>
+        /// <param name="sender">The object that sent the event.</param>
+        /// <param name="e">The event.</param>
         public void Add_OnClick(object sender, RoutedEventArgs e)
         {
-            TournamentRound r = new(Utility.Tournaments[this.Tournament.SelectedIndex]);
-            Utility.UpdateTournaments();
-            Utility.UpdateTournamentRounds(Utility.Tournaments[this.Tournament.SelectedIndex]);
+            _ = new TournamentRound(Utility.Tournaments[this.Tournament.SelectedIndex]);
             this.Close();
         }
 
+        /// <summary>
+        /// Closes the window.
+        /// </summary>
+        /// <param name="sender">The object that sent the event.</param>
+        /// <param name="e">The event.</param>
         public void Cancel_OnClick(object sender, RoutedEventArgs e)
         {
             this.Close();
