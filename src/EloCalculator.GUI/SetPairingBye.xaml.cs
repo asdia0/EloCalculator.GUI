@@ -6,9 +6,9 @@
     using EloCalculator;
 
     /// <summary>
-    /// Interaction logic for NewRequestedBye.xaml.
+    /// Interaction logic for SetPairingBye.xaml.
     /// </summary>
-    public partial class NewRequestedBye : Window
+    public partial class SetPairingBye : Window
     {
         /// <summary>
         /// Gets the <see cref="Tournament"/> the <see cref="Game"/> is being added to.
@@ -29,9 +29,9 @@
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="NewRequestedBye"/> class.
+        /// Initializes a new instance of the <see cref="SetPairingBye"/> class.
         /// </summary>
-        public NewRequestedBye()
+        public SetPairingBye()
         {
             this.InitializeComponent();
             Utility.UpdateAll();
@@ -71,7 +71,7 @@
             }
             else
             {
-                round.RequestedByes.Add(tPlayer);
+                this._Tournament.Rounds[this.Round.SelectedIndex].PairingBye = tPlayer;
                 Utility.UpdateAll();
                 Utility.RefreshWindows();
                 this.Close();

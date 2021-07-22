@@ -40,8 +40,8 @@
                     Width="1*">
                     <DataGridTextColumn.Binding>
                         <MultiBinding StringFormat="{}{0} ({1})">
-                            <Binding Path="PairingBye.ID" Mode="OneWay"/>
-                            <Binding Path="PairingBye.Name" Mode="OneWay" />
+                            <Binding Path="PairingBye.Player.ID" Mode="OneWay"/>
+                            <Binding Path="PairingBye.Player.Name" Mode="OneWay" />
                         </MultiBinding>
                     </DataGridTextColumn.Binding>
                 </DataGridTextColumn>

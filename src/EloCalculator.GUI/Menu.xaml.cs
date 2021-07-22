@@ -182,5 +182,16 @@
             NewRequestedBye newRequestedBye = new();
             newRequestedBye.Show();
         }
+
+        /// <summary>
+        /// Opens <see cref="SetPairingBye"/>.
+        /// </summary>
+        /// <param name="sender">The object that sent the event.</param>
+        /// <param name="e">The event.</param>
+        public void SetPairingBye_OnClick(object sender, RoutedEventArgs e)
+        {
+            SetPairingBye setPairingBye = new();
+            setPairingBye.Show();
+        }
     }
 }
