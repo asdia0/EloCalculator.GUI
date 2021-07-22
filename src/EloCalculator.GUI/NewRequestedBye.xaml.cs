@@ -52,7 +52,7 @@
         }
 
         /// <summary>
-        /// Adds a <see cref="TournamentPlayer"/> to a <see cref="TournamentRound"/>.
+        /// Adds a <see cref="TournamentPlayer"/> to a <see cref="EloCalculator.TournamentRound.RequestedByes"/>.
         /// </summary>
         /// <param name="sender">The object that sent the event.</param>
         /// <param name="e">The event.</param>
