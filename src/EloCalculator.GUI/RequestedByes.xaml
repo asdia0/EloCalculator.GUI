@@ -27,7 +27,7 @@
                 <DataGridCheckBoxColumn
                     Header = "Active"
                     Width="1*"
-                    Binding = "{Binding Path=Rated, Mode=OneWay}"/>
+                    Binding = "{Binding Path=Active, Mode=OneWay}"/>
 
 
                 <DataGridTextColumn
