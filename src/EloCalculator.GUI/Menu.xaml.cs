@@ -171,5 +171,16 @@
             NewTournamentGame newTournamentGames = new();
             newTournamentGames.Show();
         }
+
+        /// <summary>
+        /// Opens <see cref="NewRequestedBye"/>.
+        /// </summary>
+        /// <param name="sender">The object that sent the event.</param>
+        /// <param name="e">The event.</param>
+        public void AddRequestedBye_OnClick(object sender, RoutedEventArgs e)
+        {
+            NewRequestedBye newRequestedBye = new();
+            newRequestedBye.Show();
+        }
     }
 }

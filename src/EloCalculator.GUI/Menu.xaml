@@ -25,6 +25,7 @@
                 <MenuItem Header="Add Tournament Player" Click="AddTournamentPlayer_OnClick"/>
                 <MenuItem Header="Add Tournament Round" Click="AddTournamentRound_OnClick"/>
                 <MenuItem Header="Add Tournament Game" Click="AddTournamentGames_OnClick"/>
+                <MenuItem Header="Add Requested Bye" Click="AddRequestedBye_OnClick"/>
             </MenuItem>
         </Menu>
     </Grid>

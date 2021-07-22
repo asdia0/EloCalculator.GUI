@@ -9,9 +9,9 @@
     /// </summary>
     public partial class RequestedByes : Window
     {
-        private Tournament Tournament { get; set; }
+        public Tournament Tournament { get; set; }
 
-        private TournamentRound TournamentRound { get; set; }
+        public TournamentRound TournamentRound { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="RequestedByes"/> class.

@@ -262,6 +262,13 @@
                         TournamentRounds tr = new(tournament);
                         tr.Show();
                         break;
+                    case "EloCalculator.GUI.RequestedByes":
+                        tournament = ((RequestedByes)window).Tournament;
+                        round = ((RequestedByes)window).TournamentRound;
+                        ((Window)window).Close();
+                        RequestedByes rb = new(tournament, round);
+                        rb.Show();
+                        break;
                 }
             }
         }
