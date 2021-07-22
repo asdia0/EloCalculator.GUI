@@ -193,5 +193,16 @@
             SetPairingBye setPairingBye = new();
             setPairingBye.Show();
         }
+
+        /// <summary>
+        /// Opens <see cref="GetPairings"/>.
+        /// </summary>
+        /// <param name="sender">The object that sent the event.</param>
+        /// <param name="e">The event.</param>
+        public void GetPairings_OnClick(object sender, RoutedEventArgs e)
+        {
+            GetPairings getPairings = new();
+            getPairings.Show();
+        }
     }
 }
