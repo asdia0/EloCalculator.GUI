@@ -56,7 +56,7 @@
         /// </summary>
         /// <param name="sender">The object that sent the event.</param>
         /// <param name="e">The event.</param>
-        public void Add_OnClick(object sender, RoutedEventArgs e)
+        public void Set_OnClick(object sender, RoutedEventArgs e)
         {
             TournamentPlayer tPlayer = this._Tournament.Players[this.Player.SelectedIndex];
             TournamentRound round = this._Tournament.Rounds[this.Round.SelectedIndex];
