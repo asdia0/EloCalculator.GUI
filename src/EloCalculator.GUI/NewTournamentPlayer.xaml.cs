@@ -17,7 +17,9 @@
         {
             this.InitializeComponent();
             this.Tournament.ItemsSource = Utility.Tournaments.Select(i => $"{i.ID} ({i.Name})");
+            this.Tournament.SelectedIndex = 0;
             this.Player.ItemsSource = Utility.Players.Select(i => $"{i.ID} ({i.Name})");
+            this.Player.SelectedIndex = 0;
         }
 
         /// <summary>
