@@ -1,4 +1,4 @@
-Status: `UNMAINTAINED`
+# Status: `UNMAINTAINED`
 
 # EloCalculator.GUI
 
